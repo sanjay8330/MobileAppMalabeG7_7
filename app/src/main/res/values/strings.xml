@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="Navigate">Back</string>
+    <string name="Access">Log Out</string>
+    <string name="logo">Tour Assist Srilanka</string>
+    <string name="button1">Manage Tourist-Guide</string>
+    <string name="button2">Manage Rooms</string>
+    <string name="button3">Manage Vehicles</string>
+    <string name="button4">Calculate Total Income</string>
+    <string name="button5">Calculate Total Expense</string>
+    <string name="button6">Calculate Salary</string>
+    <string name="footer1">Tour-Assist App</string>
+    <string name="footer2">S.Sanjay (IT19158228)</string>
+    <string name="NewRoom">Add New Room</string>
+    <string name="ID">RoomID</string>
+    <string name="Type">Room Type</string>
+    <string name="Des">Description</string>
+    <string name="feat">Features</string>
+    <string name="checkbox1">Free Wifi</string>
+    <string name="checkbox2">Television</string>
+    <string name="checkbox3">Air-conditioned</string>
+    <string name="checkbox4">Shower</string>
+    <string name="checkbox5">Tea-Maker</string>
+    <string name="price">Price</string>
+    <string name="RoomButton1">Add Room</string>
+    <string name="delRoom">Delete Room</string>
+    <string name="income">Generate Income</string>
+</resources>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img2"
+    tools:context=".MainActivity6">
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="326dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/footer2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="326dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/footer1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/divider13"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="52dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="104dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:drawable/btn_star_big_on"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo_3"
+        tools:srcCompat="@drawable/logo_3" />
+
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="379dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="216dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Calculate Income Homepage"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Income Status"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="182dp"
+        android:text="@string/income"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TableLayout
+        android:layout_width="379dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_gravity="center"
+                android:text="Payment ID"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_gravity="center"
+                android:text="Payment Date"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="179dp"
+                android:layout_gravity="center"
+                android:text="Payment Amount"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </TableRow>
+        >
+
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
