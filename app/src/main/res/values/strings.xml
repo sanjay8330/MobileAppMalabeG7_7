@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">Tour Assist SL</string>
+    <string name="button">Button</string>
+    <string name="todo">TODO</string>
+
+    <string-array name="gType">
+        <item>Male</item>
+        <item>Femail</item>
+    </string-array>
+
+    <string-array name="gType1">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </string-array>
+    <string-array name="gType2">
+        <item>Sinhala</item>
+        <item>Tamil</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="bType">
+        <item>Master</item>
+        <item>King</item>
+        <item>Normal</item>
+        <item>Double</item>
+        <item>Single</item>
+    </string-array>
+
+    <string-array name="bType1">
+        <item>AC</item>
+        <item>None-AC</item>
+    </string-array>
+    <string-array name="bType2">
+        <item>Half Day</item>
+        <item>1 Day</item>
+        <item>2 Day</item>
+        <item>3 Day</item>
+    </string-array>
+
+
+    <string-array name="vType">
+        <item>Car</item>
+        <item>Van</item>
+        <item>Bus</item>
+        <item>Double Decker</item>
+    </string-array>
+
+    <string-array name="vType1">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </string-array>
+    <string-array name="vType2">
+
+        <item>1-50KM</item>
+        <item>50-100KM</item>
+        <item>100-200KM</item>
+        <item>200KM+</item>
+
+    </string-array>
+
+</resources>
