@@ -23,6 +23,21 @@
     <string name="checkbox5">Tea-Maker</string>
     <string name="price">Price</string>
     <string name="RoomButton1">Add Room</string>
-    <string name="delRoom">Delete Room</string>
     <string name="income">Generate Income</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="customers">Manage Customers</string>
+    <string name="ViewRooms">View Rooms</string>
+    <string name="search">Search Room</string>
+    <string name="EditRooms">Edit Rooms</string>
+    <string name="updRoom">Update Room</string>
+    <string name="delRoom">Delete Room</string>
+    <string name="Title">Tour Assist Srilanka</string>
+    <string name="BookRooms">Book Rooms</string>
+    <string name="BookHotel">Book Hotel Rooms</string>
+    <string name="BookVeh">Book Vehicles</string>
+    <string name="BookAll">Take a tour</string>
+    <string name="locat">Location</string>
+    <string name="EditRooms1">Edit Room Details</string>
+    <string name="delHome">Delete Room HomePage</string>
 </resources>
