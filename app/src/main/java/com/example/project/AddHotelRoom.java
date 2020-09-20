@@ -1,30 +1,44 @@
 package com.example.project;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.project.Database.DBHandler;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class AddHotelRoom extends AppCompatActivity {
 
     ViewFlipper view_flipper;
-    RadioGroup rg;
     CheckBox chk1,chk2,chk3,chk4,chk5;
     EditText price,descrip,locat;
     Button add;
-    DBHandler db;
-    Context cont;
+    DatabaseReference dbref;
+    RoomModel room;
+    int maxvalue = 001;
+    //String roomID = "RM000";
+
+    public void clearFields(){
+        price.setText("");
+        descrip.setText("");
+        locat.setText("");
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +50,7 @@ public class AddHotelRoom extends AppCompatActivity {
         for(int image:images){
             flipImages(image);
         }
-
-        cont = this;
-        add = findViewById(R.id.button13);
-
-        /*Radio Buton Input*/
-        rg = (RadioGroup) findViewById(R.id.rg);
-
+        add = findViewById(R.id.add);
 
         /*String Value Inputs*/
         price = findViewById(R.id.txt1);
@@ -55,6 +63,23 @@ public class AddHotelRoom extends AppCompatActivity {
         chk3 = (CheckBox)findViewById(R.id.checkBox3);
         chk4 = (CheckBox)findViewById(R.id.checkBox4);
         chk5 = (CheckBox)findViewById(R.id.checkBox5);
+
+        //j = i;
+        room = new RoomModel();
+
+        dbref = FirebaseDatabase.getInstance().getReference().child("Rooms");
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                maxvalue = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
+                //roomID = String.valueOf(dataSnapshot.getChildrenCount());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void flipImages(int image){
@@ -69,38 +94,61 @@ public class AddHotelRoom extends AppCompatActivity {
         view_flipper.setOutAnimation(this,android.R.anim.slide_out_right);
     }
 
-    public void addRoom(View view) {
-        //Getting Inputs from the check Box
-        String result =" ";
-        if(chk1.isChecked()){
-            result += "Free Wifi\n";
-        }
-        if(chk2.isChecked()){
-            result += "Television\n";
-        }
-        if(chk3.isChecked()){
-            result += "Air Conditioned\n";
-        }
-        if(chk4.isChecked()){
-            result += "Shower\n";
-        }
-        if(chk5.isChecked()){
-            result += "Tea-Maker";
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-        //Radio Button
-        String value = ((RadioButton)findViewById(rg.getCheckedRadioButtonId())).getText().toString();
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbref = FirebaseDatabase.getInstance().getReference().child("Rooms");
+                    try {
+                        if (TextUtils.isEmpty(price.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "Enter the price", Toast.LENGTH_SHORT).show();
+                        } else if (TextUtils.isEmpty(locat.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "Enter the Location", Toast.LENGTH_SHORT).show();
+                        } else if (TextUtils.isEmpty(descrip.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "Enter the description", Toast.LENGTH_SHORT).show();
+                        } else {
+                            //Getting Inputs from the check Box
+                            String result = " ";
+                            if (chk1.isChecked()) {
+                                result += "Free Wifi ,";
+                            }
+                            if (chk2.isChecked()) {
+                                result += "Television ,";
+                            }
+                            if (chk3.isChecked()) {
+                                result += "Air Conditioned ,";
+                            }
+                            if (chk4.isChecked()) {
+                                result += "Shower ,";
+                            }
+                            if (chk5.isChecked()) {
+                                result += "Tea-Maker ,";
+                            }
 
-        //String Values
-        String pri = price.getText().toString();
-        String des = descrip.getText().toString();
-        String loc = locat.getText().toString();
-        db = new DBHandler(this);
-        long res = db.addRecord(value,result,loc,pri,des);
+                            //room.setId(Integer.parseInt(roomID)+1);
+                            room.setId(maxvalue+1);
+                            room.setFeatures(result.trim());
+                            room.setPrice(price.getText().toString().trim());
+                            room.setLocat(locat.getText().toString().trim());
+                            room.setDescrip(descrip.getText().toString().trim());
 
-        if(res>0){
-            Toast toast = Toast.makeText(getApplicationContext(),"Data Added Successfully!!!!",Toast.LENGTH_SHORT);
-            toast.show();
-        }
+                            dbref.child(String.valueOf(maxvalue+1)).setValue(room);
+                            //dbref.child((roomID+1)).setValue(room);
+
+
+
+                            Toast.makeText(getApplicationContext(), "Data added Successfully", Toast.LENGTH_SHORT).show();
+                            clearFields();
+
+                            //i++;
+                        }
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                    }
+            }
+        });
     }
 }

@@ -4,19 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class ManageRooms extends AppCompatActivity {
 
-    Button btn,btn3;
+    Button btn,btn4,btn5;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_rooms);
 
         btn = findViewById(R.id.button11);
-        btn3 = findViewById(R.id.button14);
+        btn4 = findViewById(R.id.button12);
     }
 
     @Override
@@ -31,12 +36,14 @@ public class ManageRooms extends AppCompatActivity {
             }
         });
 
-        btn3.setOnClickListener(new View.OnClickListener() {
+        btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ManageRooms.this,EditRooms.class);
-                startActivity(intent);
+                Intent intent = new Intent(ManageRooms.this,ViewRooms.class);
+                startActivity(intent
+                );
             }
         });
+
     }
 }

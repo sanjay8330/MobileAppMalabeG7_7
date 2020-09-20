@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "625496458431",
+    "firebase_url": "https://madcrud-aba94.firebaseio.com",
+    "project_id": "madcrud-aba94",
+    "storage_bucket": "madcrud-aba94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625496458431:android:b406be98b7a3ea1e37f20a",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "625496458431-lojvcrc49grq3nvnqbl1eap4nomgm4m1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt5BWUKgBcgdEnIm8xRyLXIVxbaJpgr_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "625496458431-lojvcrc49grq3nvnqbl1eap4nomgm4m1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

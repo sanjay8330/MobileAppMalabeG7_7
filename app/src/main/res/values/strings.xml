@@ -40,4 +40,7 @@
     <string name="locat">Location</string>
     <string name="EditRooms1">Edit Room Details</string>
     <string name="delHome">Delete Room HomePage</string>
+    <string name="List">List of Rooms</string>
+    <string name="update">Update Details</string>
+    <string name="delete">Delete Details</string>
 </resources>

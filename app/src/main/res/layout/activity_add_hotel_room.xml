@@ -74,20 +74,19 @@
       app:layout_constraintVertical_bias="0.023" />
 
   <Button
-      android:id="@+id/button13"
+      android:id="@+id/add"
       android:layout_width="167dp"
       android:layout_height="36dp"
       android:background="@color/colorAccent"
       android:fontFamily="@font/alegreya_sans_sc_medium"
-      android:onClick="addRoom"
       android:text="@string/RoomButton1"
       android:textSize="18sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.467"
+      app:layout_constraintHorizontal_bias="0.479"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.882" />
+      app:layout_constraintVertical_bias="0.91" />
 
   <TextView
       android:id="@+id/textView8"
@@ -107,19 +106,6 @@
       app:layout_constraintVertical_bias="0.022" />
 
   <TextView
-      android:id="@+id/textView14"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/alegreya_sans_sc_medium"
-      android:text="@string/Type"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.047"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.337" />
-
-  <TextView
       android:id="@+id/textView15"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -127,90 +113,10 @@
       android:text="@string/feat"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.045"
+      app:layout_constraintHorizontal_bias="0.041"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.397" />
-
-  <TextView
-      android:id="@+id/textView16"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/alegreya_sans_sc_medium"
-      android:text="@string/price"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.042"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.588" />
-
-  <TextView
-      android:id="@+id/textView9"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/alegreya_sans_sc_medium"
-      android:text="@string/locat"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.042"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.676" />
-
-  <TextView
-      android:id="@+id/textView17"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/alegreya_sans_sc_medium"
-      android:text="@string/Des"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.047"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.779" />
-
-  <RadioGroup
-      android:id="@+id/rg"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
-
-  </RadioGroup>
-
-  <RadioButton
-      android:id="@+id/radioButtonZar"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"
-      android:checked="true"
-      android:fontFamily="@font/alegreya_sans_sc_medium"
-      android:text="Deluxe"
-      app:layout_constraintBaseline_toBaselineOf="@+id/radioButtonNeo"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.338"
-      app:layout_constraintStart_toStartOf="parent" />
-
-  <RadioButton
-      android:id="@+id/radioButtonNeo"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignBottom="@+id/rg"
-      android:layout_alignParentStart="true"
-      android:layout_alignParentLeft="true"
-      android:layout_weight="1"
-      android:fontFamily="@font/alegreya_sans_sc_medium"
-      android:text="Standard"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.813"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.343" />
+      app:layout_constraintVertical_bias="0.363" />
 
   <CheckBox
       android:id="@+id/checkBox"
@@ -219,22 +125,23 @@
       android:text="@string/checkbox1"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.351"
+      app:layout_constraintHorizontal_bias="0.305"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.432" />
+      app:layout_constraintVertical_bias="0.397" />
 
-  <CheckBox
-      android:id="@+id/checkBox2"
+  <RadioGroup
+      android:id="@+id/rg"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/checkbox2"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.829"
+      app:layout_constraintHorizontal_bias="0.464"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.432" />
+      app:layout_constraintVertical_bias="0.467">
+
+  </RadioGroup>
 
   <CheckBox
       android:id="@+id/checkBox4"
@@ -243,10 +150,10 @@
       android:text="@string/checkbox4"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.789"
+      app:layout_constraintHorizontal_bias="0.743"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.477" />
+      app:layout_constraintVertical_bias="0.443" />
 
   <CheckBox
       android:id="@+id/checkBox5"
@@ -255,10 +162,10 @@
       android:text="@string/checkbox5"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.364"
+      app:layout_constraintHorizontal_bias="0.316"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.523" />
+      app:layout_constraintVertical_bias="0.489" />
 
   <CheckBox
       android:id="@+id/checkBox3"
@@ -267,10 +174,22 @@
       android:text="@string/checkbox3"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.401"
+      app:layout_constraintHorizontal_bias="0.348"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.477" />
+      app:layout_constraintVertical_bias="0.443" />
+
+  <CheckBox
+      android:id="@+id/checkBox2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/checkbox2"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.781"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.397" />
 
   <EditText
       android:id="@+id/txt1"
@@ -280,23 +199,49 @@
       android:inputType="number"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.567"
+      app:layout_constraintHorizontal_bias="0.577"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.59" />
+      app:layout_constraintVertical_bias="0.572" />
 
-  <EditText
-      android:id="@+id/txt2"
+  <TextView
+      android:id="@+id/textView16"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:ems="10"
-      android:inputType="textPersonName"
+      android:fontFamily="@font/alegreya_sans_sc_medium"
+      android:text="@string/price"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.572"
+      app:layout_constraintHorizontal_bias="0.044"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.795" />
+      app:layout_constraintVertical_bias="0.571" />
+
+  <TextView
+      android:id="@+id/textView9"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/alegreya_sans_sc_medium"
+      android:text="@string/locat"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.044"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.66" />
+
+  <TextView
+      android:id="@+id/textView17"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/alegreya_sans_sc_medium"
+      android:text="@string/Des"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.05"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.762" />
 
   <EditText
       android:id="@+id/txt3"
@@ -306,8 +251,22 @@
       android:inputType="textPersonName"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.572"
+      app:layout_constraintHorizontal_bias="0.577"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.69" />
+      app:layout_constraintVertical_bias="0.673" />
+
+  <EditText
+      android:id="@+id/txt2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="textPersonName"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.577"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.778" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

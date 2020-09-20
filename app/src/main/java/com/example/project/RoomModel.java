@@ -2,25 +2,17 @@ package com.example.project;
 
 public class RoomModel {
     private int id;
-    private String type,features,descrip;
+    private String features, descrip, locat;
     private String price;
 
-    public RoomModel(){
-
+    public RoomModel() {
     }
 
-    public RoomModel(int id, String type, String features, String descrip, String price) {
+    public RoomModel(int id, String features, String descrip, String locat, String price) {
         this.id = id;
-        this.type = type;
         this.features = features;
         this.descrip = descrip;
-        this.price = price;
-    }
-
-    public RoomModel(String type, String features, String descrip, String price) {
-        this.type = type;
-        this.features = features;
-        this.descrip = descrip;
+        this.locat = locat;
         this.price = price;
     }
 
@@ -30,14 +22,6 @@ public class RoomModel {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getFeatures() {
@@ -56,11 +40,24 @@ public class RoomModel {
         this.descrip = descrip;
     }
 
+    public String getLocat() {
+        return locat;
+    }
+
+    public void setLocat(String locat) {
+        this.locat = locat;
+    }
+
     public String getPrice() {
         return price;
     }
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getDetails(){
+        String details = "Room ID : "+ this.getId() +"\n" +"Room Features : "+this.getFeatures() + "\n" +"Room Location : "+ this.getLocat() + "\n" + "Room Price : "+ this.getPrice() + "\n" +"Room Description : "+ this.getDescrip() + "\n";
+        return details;
     }
 }
