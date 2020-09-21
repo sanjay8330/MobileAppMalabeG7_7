@@ -43,4 +43,6 @@
     <string name="List">List of Rooms</string>
     <string name="update">Update Details</string>
     <string name="delete">Delete Details</string>
+    <string name="choose">Choose</string>
+    <string name="uploadimage">Upload an Image</string>
 </resources>

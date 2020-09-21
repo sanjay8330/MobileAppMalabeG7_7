@@ -21,19 +21,6 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.096" />
 
-  <TextView
-      android:id="@+id/textView18"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="140dp"
-      android:fontFamily="sans-serif-medium"
-      android:text="@string/footer1"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/textView4"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.99" />
-
   <ViewFlipper
       android:id="@+id/v_flipper"
       android:layout_width="match_parent"
@@ -86,7 +73,7 @@
       app:layout_constraintHorizontal_bias="0.479"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.91" />
+      app:layout_constraintVertical_bias="0.976" />
 
   <TextView
       android:id="@+id/textView8"
@@ -268,5 +255,45 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.778" />
+
+  <ImageView
+      android:id="@+id/img"
+      android:layout_width="94dp"
+      android:layout_height="78dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.047"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.906"
+      tools:srcCompat="@drawable/uploadimage" />
+
+  <Button
+      android:id="@+id/imgbutton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="#FFFFFF"
+      android:text="@string/choose"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.811"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.887" />
+
+  <TextView
+      android:id="@+id/textView7"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/alegreya_sans_sc_medium"
+      android:text="@string/uploadimage"
+      android:textSize="16sp"
+      android:textStyle="bold|italic"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.462"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.87" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

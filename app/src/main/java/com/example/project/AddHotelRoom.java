@@ -4,7 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -22,17 +26,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
+
 public class AddHotelRoom extends AppCompatActivity {
 
     ViewFlipper view_flipper;
     CheckBox chk1,chk2,chk3,chk4,chk5;
     EditText price,descrip,locat;
-    Button add;
+    Button add,img;
     DatabaseReference dbref;
     RoomModel room;
     int maxvalue = 001;
-    //String roomID = "RM000";
+    ImageView imageView;
 
+    private Uri filepath;
+    private final int PICK_IMAGE_REQUEST = 71;
     public void clearFields(){
         price.setText("");
         descrip.setText("");
@@ -51,7 +59,8 @@ public class AddHotelRoom extends AppCompatActivity {
             flipImages(image);
         }
         add = findViewById(R.id.add);
-
+        imageView = findViewById(R.id.img);
+        img = findViewById(R.id.imgbutton);
         /*String Value Inputs*/
         price = findViewById(R.id.txt1);
         descrip = findViewById(R.id.txt2);
@@ -127,8 +136,8 @@ public class AddHotelRoom extends AppCompatActivity {
                             if (chk5.isChecked()) {
                                 result += "Tea-Maker ,";
                             }
-
                             //room.setId(Integer.parseInt(roomID)+1);
+                            room.setImageURL(filepath.toString());
                             room.setId(maxvalue+1);
                             room.setFeatures(result.trim());
                             room.setPrice(price.getText().toString().trim());
@@ -136,19 +145,46 @@ public class AddHotelRoom extends AppCompatActivity {
                             room.setDescrip(descrip.getText().toString().trim());
 
                             dbref.child(String.valueOf(maxvalue+1)).setValue(room);
-                            //dbref.child((roomID+1)).setValue(room);
-
-
 
                             Toast.makeText(getApplicationContext(), "Data added Successfully", Toast.LENGTH_SHORT).show();
-                            clearFields();
-
-                            //i++;
+                            Intent intent = new Intent(AddHotelRoom.this,ViewRooms.class);
+                            startActivity(intent);
                         }
                     } catch (NumberFormatException e) {
                         Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                     }
             }
         });
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chooseImage();
+            }
+        });
+    }
+
+    //Choose Image
+    public void chooseImage(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            filepath = data.getData();
+
+            try{
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                imageView.setImageBitmap(bitmap);
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 }

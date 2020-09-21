@@ -4,16 +4,32 @@ public class RoomModel {
     private int id;
     private String features, descrip, locat;
     private String price;
+    private String imageName;
+    private String imageURL;
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     public RoomModel() {
     }
 
-    public RoomModel(int id, String features, String descrip, String locat, String price) {
+    public RoomModel(int id, String features, String descrip, String locat, String price,String imageName,String url) {
         this.id = id;
         this.features = features;
         this.descrip = descrip;
         this.locat = locat;
         this.price = price;
+        this.imageName = imageName;
+        this.imageURL = url;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public String getImageURL() {
+        return imageURL;
     }
 
     public int getId() {
