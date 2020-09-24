@@ -76,7 +76,7 @@ public class EditRooms extends AppCompatActivity {
                     }
                 });
                 Toast.makeText(EditRooms.this, "Deleted Successfully!!!!!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(EditRooms.this,ViewRooms.class);
+                Intent intent = new Intent(EditRooms.this,ManageRooms.class);
                 startActivity(intent);
             }
         });

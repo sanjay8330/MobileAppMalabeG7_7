@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -36,11 +38,13 @@ public class ViewRooms extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     Button btndel;
     Module module;
+    //ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_rooms);
+        //imageView = findViewById(R.id.view1);
         db = FirebaseDatabase.getInstance().getReference().child("Rooms");
         listView = (ListView) findViewById(R.id.list);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraylist);
@@ -52,6 +56,7 @@ public class ViewRooms extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String det = dataSnapshot.getValue(RoomModel.class).getDetails();
+                String image = dataSnapshot.getValue(RoomModel.class).getImg();
                 arraylist.add(det);
                 arrayAdapter.notifyDataSetChanged();
             }
@@ -89,31 +94,5 @@ public class ViewRooms extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        /*btndel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final String str = module.getGetRoomID().substring(9,11).trim();
-                if (str=="") {
-                    Toast.makeText(ViewRooms.this, "Please select an item before Delete", Toast.LENGTH_SHORT).show();
-                }else{
-                    db.child("Rooms").child(str).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            db.child(str).removeValue();
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-
-                    Toast.makeText(ViewRooms.this, "Room is deleted!!!!!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),ViewRooms.class);
-                    startActivity(intent);
-                }
-            }
-        });*/
     }
 }

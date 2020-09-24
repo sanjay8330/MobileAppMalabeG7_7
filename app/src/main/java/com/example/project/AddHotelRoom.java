@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -15,18 +16,27 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class AddHotelRoom extends AppCompatActivity {
 
@@ -41,6 +51,9 @@ public class AddHotelRoom extends AppCompatActivity {
 
     private Uri filepath;
     private final int PICK_IMAGE_REQUEST = 71;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
+
     public void clearFields(){
         price.setText("");
         descrip.setText("");
@@ -81,7 +94,6 @@ public class AddHotelRoom extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 maxvalue = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
-                //roomID = String.valueOf(dataSnapshot.getChildrenCount());
             }
 
             @Override
@@ -89,6 +101,9 @@ public class AddHotelRoom extends AppCompatActivity {
 
             }
         });
+
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
     }
 
     public void flipImages(int image){
@@ -118,7 +133,8 @@ public class AddHotelRoom extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Enter the Location", Toast.LENGTH_SHORT).show();
                         } else if (TextUtils.isEmpty(descrip.getText().toString())) {
                             Toast.makeText(getApplicationContext(), "Enter the description", Toast.LENGTH_SHORT).show();
-                        } else {
+                        }
+                        else {
                             //Getting Inputs from the check Box
                             String result = " ";
                             if (chk1.isChecked()) {
@@ -136,18 +152,17 @@ public class AddHotelRoom extends AppCompatActivity {
                             if (chk5.isChecked()) {
                                 result += "Tea-Maker ,";
                             }
-                            //room.setId(Integer.parseInt(roomID)+1);
-                            room.setImageURL(filepath.toString());
                             room.setId(maxvalue+1);
                             room.setFeatures(result.trim());
                             room.setPrice(price.getText().toString().trim());
                             room.setLocat(locat.getText().toString().trim());
                             room.setDescrip(descrip.getText().toString().trim());
+                            room.setImg(downloaduri.toString());
 
                             dbref.child(String.valueOf(maxvalue+1)).setValue(room);
 
                             Toast.makeText(getApplicationContext(), "Data added Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(AddHotelRoom.this,ViewRooms.class);
+                            Intent intent = new Intent(AddHotelRoom.this,ManageRooms.class);
                             startActivity(intent);
                         }
                     } catch (NumberFormatException e) {
@@ -177,14 +192,58 @@ public class AddHotelRoom extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            filepath = data.getData();
-
             try{
+                filepath = data.getData();
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
                 imageView.setImageBitmap(bitmap);
+                uploadImage();
             }catch(IOException e){
                 e.printStackTrace();
             }
         }
+    }
+
+    public Uri downloaduri;
+
+    public void uploadImage(){
+
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Uploading Image.....");
+        pd.show();
+
+        final String randomkey = room.getId()+UUID.randomUUID().toString();
+        final StorageReference riversRef = storageReference.child("images/"+randomkey);
+
+        riversRef.putFile(filepath)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        pd.dismiss();
+                        Snackbar.make(findViewById(android.R.id.content),"Image Uploaded",Snackbar.LENGTH_LONG).show();
+                        riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                downloaduri = uri;
+                                //room.setImg(downloaduri.toString());
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        pd.dismiss();
+                        Toast.makeText(getApplicationContext(), "Upload Failed", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progresspercent = (100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                        pd.setMessage("Percentage: "+ (int)progresspercent + "%" );
+                    }
+                });
     }
 }

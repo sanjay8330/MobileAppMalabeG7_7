@@ -45,4 +45,5 @@
     <string name="delete">Delete Details</string>
     <string name="choose">Choose</string>
     <string name="uploadimage">Upload an Image</string>
+    <string name="incomedet">Total Income Recieved</string>
 </resources>
