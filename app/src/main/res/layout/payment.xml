@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple"
+    android:background="@color/white"
     tools:context=".Payment">
 
     <ImageView
@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/icons8_visa_512" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCardPay"
         android:layout_width="109dp"
         android:layout_height="32dp"
         android:background="#86D0F1"
@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.141" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnCard"
         android:layout_width="109dp"
         android:layout_height="32dp"
         android:background="#86D0F1"
@@ -66,6 +66,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.991"
-        app:srcCompat="@drawable/illustration" />
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

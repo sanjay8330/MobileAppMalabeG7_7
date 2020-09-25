@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple"
+    android:background="@color/white"
     tools:context=".vehiclebooking">
 
     <TextView
@@ -88,7 +88,7 @@
         app:srcCompat="@drawable/vehicle3" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCardPay"
         android:layout_width="109dp"
         android:layout_height="32dp"
         android:background="#86D0F1"
@@ -102,17 +102,18 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="299dp"
-        android:layout_height="243dp"
+        android:layout_width="243dp"
+        android:layout_height="230dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991"
-        app:srcCompat="@drawable/illustration" />
+        app:layout_constraintVertical_bias="0.839"
+        app:srcCompat="@drawable/logo" />
 
     <Spinner
-        android:id="@+id/gspin111"
+        android:id="@+id/Vtype"
         android:layout_width="191dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +124,7 @@
         app:layout_constraintVertical_bias="0.282" />
 
     <Spinner
-        android:id="@+id/gspin222"
+        android:id="@+id/Vseats"
         android:layout_width="191dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,9 +135,10 @@
         app:layout_constraintVertical_bias="0.396" />
 
     <Spinner
-        android:id="@+id/gspin333"
+        android:id="@+id/Milage"
         android:layout_width="191dp"
         android:layout_height="48dp"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.731"

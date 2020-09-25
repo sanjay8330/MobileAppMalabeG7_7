@@ -77,10 +77,10 @@
     </string-array>
     <string-array name="vType2">
 
-        <item>1-50KM</item>
-        <item>50-100KM</item>
-        <item>100-200KM</item>
-        <item>200KM+</item>
+        <item>1-50</item>
+        <item>50-100</item>
+        <item>100-200</item>
+        <item>200</item>
 
     </string-array>
 
