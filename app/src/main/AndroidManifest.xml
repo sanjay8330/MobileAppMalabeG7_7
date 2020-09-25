@@ -12,11 +12,8 @@
         <activity android:name=".cardRet"></activity>
         <activity android:name=".EmailRet" />
         <activity android:name=".WebAct" />
-        <activity android:name=".vehiclebooking" />
-        <activity android:name=".roomBooking" />
         <activity android:name=".PaypalPay" />
         <activity android:name=".Payment" />
-        <activity android:name=".GuidBooking" />
         <activity android:name=".CardPayment" />
         <activity android:name=".Bill">
             <intent-filter>
