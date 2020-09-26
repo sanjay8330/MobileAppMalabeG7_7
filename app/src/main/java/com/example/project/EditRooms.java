@@ -54,6 +54,8 @@ public class EditRooms extends AppCompatActivity {
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
 
+    public String imageurl;
+
     Module module;
     DatabaseReference db,readdf,updateref;
     @Override
@@ -138,6 +140,8 @@ public class EditRooms extends AppCompatActivity {
                 eddescip.setText(dataSnapshot.child("descrip").getValue().toString());
                 Picasso.with(EditRooms.this).load(dataSnapshot.child("img").getValue().toString()).into(image);
 
+                imageurl = dataSnapshot.child("img").getValue().toString();
+
             }
 
             @Override
@@ -188,7 +192,13 @@ public class EditRooms extends AppCompatActivity {
                                 db.child("Rooms").child(rmID2).child("price").setValue(edPrice.getText().toString().trim());
                                 db.child("Rooms").child(rmID2).child("locat").setValue(edlocat.getText().toString().trim());
                                 db.child("Rooms").child(rmID2).child("descrip").setValue(eddescip.getText().toString().trim());
-                                db.child("Rooms").child(rmID2).child("img").setValue(downloaduri.toString());
+
+                                if(downloaduri.toString().isEmpty()){
+                                    db.child("Rooms").child(rmID2).child("img").setValue(imageurl);
+                                }else{
+                                    db.child("Rooms").child(rmID2).child("img").setValue(downloaduri.toString());
+                                }
+
                             }
 
                             @Override
@@ -206,6 +216,11 @@ public class EditRooms extends AppCompatActivity {
             }
 
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -261,7 +276,6 @@ public class EditRooms extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 downloaduri = uri;
-                                //room.setImg(downloaduri.toString());
                             }
                         });
                     }
