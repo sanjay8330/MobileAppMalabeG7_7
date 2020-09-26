@@ -36,7 +36,7 @@ public class ViewRooms extends AppCompatActivity {
     ListView listView;
     ArrayList<String> arraylist = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
-    Button btndel;
+    Button btndel,btnmanage;
     Module module;
     //ImageView imageView;
 
@@ -44,6 +44,8 @@ public class ViewRooms extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_rooms);
+
+        btnmanage = findViewById(R.id.button6);
         //imageView = findViewById(R.id.view1);
         db = FirebaseDatabase.getInstance().getReference().child("Rooms");
         listView = (ListView) findViewById(R.id.list);
@@ -91,6 +93,14 @@ public class ViewRooms extends AppCompatActivity {
 
                 Intent intent = new Intent(ViewRooms.this,EditRooms.class);
                 intent.putExtra("RoomID",tempid);
+                startActivity(intent);
+            }
+        });
+
+        btnmanage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewRooms.this,ManageRooms.class);
                 startActivity(intent);
             }
         });

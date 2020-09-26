@@ -1,26 +1,43 @@
 package com.example.project;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.util.UUID;
 
 public class EditRooms extends AppCompatActivity {
 
@@ -28,8 +45,14 @@ public class EditRooms extends AppCompatActivity {
     TextView txt1;
     EditText edPrice,edlocat,eddescip;
     CheckBox chk1,chk2,chk3,chk4,chk5;
-    Button btn1,btn2;
+    Button btn1,btn2,btn3;
     RoomModel roomModel;
+    ImageView image;
+
+    private Uri filepath;
+    private final int PICK_IMAGE_REQUEST = 71;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
 
     Module module;
     DatabaseReference db,readdf,updateref;
@@ -42,9 +65,12 @@ public class EditRooms extends AppCompatActivity {
         Intent secIntent = getIntent();
         ID = secIntent.getStringExtra("RoomID");
 
+        image = findViewById(R.id.imgNew);
+
         txt1 = findViewById(R.id.txt);
         btn1 = findViewById(R.id.btndelete);
         btn2 = findViewById(R.id.btnupdate);
+        btn3 = findViewById(R.id.imageadd);
         edPrice = findViewById(R.id.txtPrice);
         edlocat = findViewById(R.id.txtLocat);
         eddescip = findViewById(R.id.txtDes);
@@ -54,6 +80,11 @@ public class EditRooms extends AppCompatActivity {
         chk3 = findViewById(R.id.checkBox17);//Television
         chk4 = findViewById(R.id.checkBox18);//Shower
         chk5 = findViewById(R.id.checkBox19);//Tea maker
+
+        roomModel = new RoomModel();
+
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
 
         txt1.setText(ID);
         final int childID = Integer.valueOf(ID.toString().trim());
@@ -105,6 +136,7 @@ public class EditRooms extends AppCompatActivity {
                 edPrice.setText(dataSnapshot.child("price").getValue().toString());
                 edlocat.setText(dataSnapshot.child("locat").getValue().toString());
                 eddescip.setText(dataSnapshot.child("descrip").getValue().toString());
+                Picasso.with(EditRooms.this).load(dataSnapshot.child("img").getValue().toString()).into(image);
 
             }
 
@@ -156,6 +188,7 @@ public class EditRooms extends AppCompatActivity {
                                 db.child("Rooms").child(rmID2).child("price").setValue(edPrice.getText().toString().trim());
                                 db.child("Rooms").child(rmID2).child("locat").setValue(edlocat.getText().toString().trim());
                                 db.child("Rooms").child(rmID2).child("descrip").setValue(eddescip.getText().toString().trim());
+                                db.child("Rooms").child(rmID2).child("img").setValue(downloaduri.toString());
                             }
 
                             @Override
@@ -171,6 +204,82 @@ public class EditRooms extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Something went wrong"+e, Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chooseImage();
+            }
+        });
+    }
+
+    //Choose Image
+    public void chooseImage(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            try{
+                filepath = data.getData();
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                image.setImageBitmap(bitmap);
+                uploadImage();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public Uri downloaduri;
+
+    public void uploadImage(){
+
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Uploading Image.....");
+        pd.show();
+
+        final String randomkey = roomModel.getId()+ UUID.randomUUID().toString();
+        final StorageReference riversRef = storageReference.child("images/"+randomkey);
+
+        riversRef.putFile(filepath)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        pd.dismiss();
+                        Snackbar.make(findViewById(android.R.id.content),"Image Uploaded",Snackbar.LENGTH_LONG).show();
+                        riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                downloaduri = uri;
+                                //room.setImg(downloaduri.toString());
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        pd.dismiss();
+                        Toast.makeText(getApplicationContext(), "Upload Failed", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progresspercent = (100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                        pd.setMessage("Percentage: "+ (int)progresspercent + "%" );
+                    }
+                });
     }
 }

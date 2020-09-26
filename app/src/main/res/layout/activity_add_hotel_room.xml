@@ -73,7 +73,7 @@
       app:layout_constraintHorizontal_bias="0.479"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.976" />
+      app:layout_constraintVertical_bias="0.964" />
 
   <TextView
       android:id="@+id/textView8"
@@ -183,6 +183,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:ems="10"
+      android:fontFamily="@font/alegreya_sans_sc_medium"
       android:inputType="number"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -235,6 +236,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:ems="10"
+      android:fontFamily="@font/alegreya_sans_sc_medium"
       android:inputType="textPersonName"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -248,6 +250,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:ems="10"
+      android:fontFamily="@font/alegreya_sans_sc_medium"
       android:inputType="textPersonName"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -270,16 +273,16 @@
 
   <Button
       android:id="@+id/imgbutton"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="87dp"
+      android:layout_height="39dp"
       android:background="#FFFFFF"
       android:text="@string/choose"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.811"
+      app:layout_constraintHorizontal_bias="0.739"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.887" />
+      app:layout_constraintVertical_bias="0.879" />
 
   <TextView
       android:id="@+id/textView7"
@@ -291,9 +294,9 @@
       android:textStyle="bold|italic"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.462"
+      app:layout_constraintHorizontal_bias="0.391"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.87" />
+      app:layout_constraintVertical_bias="0.863" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

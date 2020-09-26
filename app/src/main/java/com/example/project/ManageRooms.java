@@ -10,10 +10,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class ManageRooms extends AppCompatActivity {
 
-    Button btn,btn4,btn5;
+    Button btn,btn4;
+    ImageButton btn5;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class ManageRooms extends AppCompatActivity {
 
         btn = findViewById(R.id.button11);
         btn4 = findViewById(R.id.button12);
+        btn5 = findViewById(R.id.imageButton1);
     }
 
     @Override
@@ -42,6 +45,14 @@ public class ManageRooms extends AppCompatActivity {
                 Intent intent = new Intent(ManageRooms.this,ViewRooms.class);
                 startActivity(intent
                 );
+            }
+        });
+
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ManageRooms.this,adminpage.class);
+                startActivity(intent);
             }
         });
 

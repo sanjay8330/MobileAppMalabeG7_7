@@ -46,4 +46,8 @@
     <string name="choose">Choose</string>
     <string name="uploadimage">Upload an Image</string>
     <string name="incomedet">Total Income Recieved</string>
+    <string name="newImage">Choose a new image</string>
+    <string name="addnewimage">Add new Image</string>
+    <string name="roomList">List of Available Rooms</string>
+    <string name="goBack">Go back to Manage Rooms</string>
 </resources>
