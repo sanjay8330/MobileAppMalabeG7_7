@@ -81,6 +81,11 @@ public class Login_Activity extends AppCompatActivity {
                     return;
                 }
 
+                if(LoginEmail.contains("Admin123@gmail.com") && PasswordLogin.contains("admin123")){
+                    Intent intent = new Intent(Login_Activity.this,UserForgetPassword.class);
+                    startActivity(intent);
+                }
+
                 userprogress.setMessage("Login in...");
                 userprogress.show();
 
@@ -97,6 +102,27 @@ public class Login_Activity extends AppCompatActivity {
                             intent.putExtra("id",LoginEmail);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }else{
+                            userprogress.dismiss();
+                            Toast.makeText(getApplicationContext(),"login failed",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+
+                mAuth.signInWithEmailAndPassword("Admin12@gmail.com","admin123").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if(task.isSuccessful()){
+                            userprogress.dismiss();
+                            clearControls();
+                            Toast.makeText(getApplicationContext(),"Welcome.....\nTour Assist Sri Lanka",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(Login_Activity.this,ChangeUserPassword.class);
+                          // intent.putExtra("id",LoginEmail);
+                           // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }else{
                             userprogress.dismiss();
