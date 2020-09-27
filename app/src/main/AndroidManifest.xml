@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VehMan"></activity>
+        <activity android:name=".SalaryManage"></activity>
+        <activity android:name=".VehMan" />
         <activity android:name=".addDataVeh" />
         <activity android:name=".GuideHome" />
         <activity android:name=".MainPage">

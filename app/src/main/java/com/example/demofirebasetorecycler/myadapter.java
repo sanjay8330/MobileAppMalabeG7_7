@@ -2,6 +2,7 @@ package com.example.demofirebasetorecycler;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,8 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
                             final EditText address=myview.findViewById(R.id.uaddress);
                             final EditText contact=myview.findViewById(R.id.ucontact);
                             Button submit=myview.findViewById(R.id.usubmit);
+
+
 
                             url.setText(model.getUrl());
                             name.setText(model.getName());
