@@ -22,6 +22,7 @@ public class adddata extends AppCompatActivity
 {
    EditText name,date,nic,address,cnumber,url;
    Button submit,back;
+   long maxid=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
