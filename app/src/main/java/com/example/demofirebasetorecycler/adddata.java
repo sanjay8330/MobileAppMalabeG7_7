@@ -59,10 +59,16 @@ public class adddata extends AppCompatActivity
     private void processinsert()
     {
         if (TextUtils.isEmpty(name.getText().toString())){
-            name.setError("Email is Required");
+            name.setError("name is Required");
             name.requestFocus();
             return;
         }
+        if (TextUtils.isEmpty(date.getText().toString())){
+            date.setError("date is Required");
+            date.requestFocus();
+            return;
+        }
+
 
         Map<String,Object> map=new HashMap<>();
         map.put("name",name.getText().toString().trim());
