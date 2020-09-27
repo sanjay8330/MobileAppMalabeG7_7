@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class adminpage extends AppCompatActivity {
 
-    Button btn,btn2,btn3;
+    Button btn,btn2,btn3,btn4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,7 @@ public class adminpage extends AppCompatActivity {
         btn = findViewById(R.id.button22);//Manage Rooms Home
         btn2 = findViewById(R.id.retrieve);
         btn3 = findViewById(R.id.button26);//Calculate totalIncome
+        btn4 = findViewById(R.id.button21);
     }
 
     @Override
@@ -45,6 +46,14 @@ public class adminpage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent3 = new Intent(adminpage.this,income.class);
                 startActivity(intent3);
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(adminpage.this,GuideHome.class);
+                startActivity(intent);
             }
         });
     }

@@ -27,9 +27,17 @@
         <activity android:name=".ManageRooms" />
         <activity android:name=".AddHotelRoom" />
 
+
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <activity android:name=".SalaryManage"></activity>
+        <activity android:name=".GuideHome" ></activity>
+        <activity android:name=".MainPage">
+        </activity>
+        <activity android:name=".adddata" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
