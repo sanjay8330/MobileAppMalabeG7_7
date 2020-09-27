@@ -73,7 +73,7 @@ public class PaypalPay extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (Email.length()==0){
-                    Email.setError("Enter Email");
+                    Email.setError("Etner Email");
                 }
                 else{
                     Toast.makeText(PaypalPay.this,  "Data insert success",Toast.LENGTH_LONG).show();
