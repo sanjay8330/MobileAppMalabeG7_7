@@ -73,15 +73,18 @@ public class CardPayment extends AppCompatActivity {
                     crdName.setError("Enter Name On Card");
                 }
                 else{
+
+                    Float CardNu = Float.parseFloat(CardNum.getText().toString().trim());
+                    CPay.setCardNum(CardNu);
+                    CPay.setSeqNum(SeqNum.getText().toString().trim());
+                    CPay.setExDate(ExDate.getText().toString().trim());
+                    CPay.setPhnNum(phnNum.getText().toString().trim());
+                    CPay.setCrdName(crdName.getText().toString().trim());
+                    reff.child(String.valueOf(maxId+1)).setValue(CPay);
+
                     Toast.makeText(CardPayment.this,  "Data Gone success",Toast.LENGTH_LONG).show();
                 }
-                Float CardNu = Float.parseFloat(CardNum.getText().toString().trim());
-                CPay.setCardNum(CardNu);
-                CPay.setSeqNum(SeqNum.getText().toString().trim());
-                CPay.setExDate(ExDate.getText().toString().trim());
-                CPay.setPhnNum(phnNum.getText().toString().trim());
-                CPay.setCrdName(crdName.getText().toString().trim());
-                reff.child(String.valueOf(maxId+1)).setValue(CPay);
+
             }
         });
         button = (Button) findViewById(R.id.buttoncdret);

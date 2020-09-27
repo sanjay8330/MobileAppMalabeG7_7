@@ -3,8 +3,12 @@ package com.example.madproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,17 +22,25 @@ public class cardRet extends AppCompatActivity {
     TextView c;
     TextView d;
     TextView e;
+    private Button btndelete;
     DatabaseReference reff;
+
+    String Id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_ret);
+
+        Intent secIntent = getIntent();
+
+        Id=secIntent.getStringExtra("childID");
 
         a=(TextView) findViewById(R.id.cardNumR);
         b=(TextView) findViewById(R.id.seqNumR);
         c=(TextView) findViewById(R.id.exDateR);
         d=(TextView) findViewById(R.id.crdNameR);
         e=(TextView) findViewById(R.id.phnNumR);
+        btndelete=(Button) findViewById(R.id.btndelete);
 
         reff= FirebaseDatabase.getInstance().getReference().child("CardPay").child("1");
         reff.addValueEventListener(new ValueEventListener() {
@@ -51,6 +63,18 @@ public class cardRet extends AppCompatActivity {
 
             }
 
+        });
+
+     btndelete.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+
+               FirebaseDatabase.getInstance().getReference().child("CardPay").child("1").removeValue();
+               Toast.makeText(cardRet.this,  "Delete success",Toast.LENGTH_LONG).show();
+               Intent intent = new Intent(cardRet.this,CardPayment.class);
+               startActivity(intent);
+            }
         });
 
 
