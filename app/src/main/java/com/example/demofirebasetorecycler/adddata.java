@@ -83,6 +83,11 @@ public class adddata extends AppCompatActivity
             address.requestFocus();
             return;
         }
+        if (TextUtils.isEmpty(cnumber.getText().toString())){
+            cnumber.setError("nic is Require");
+            cnumber.requestFocus();
+            return;
+        }
 
 
         Map<String,Object> map=new HashMap<>();
