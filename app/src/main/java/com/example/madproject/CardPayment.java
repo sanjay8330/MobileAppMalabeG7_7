@@ -52,7 +52,7 @@ public class CardPayment extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(CardPayment.this,  "Error Found",Toast.LENGTH_LONG).show();
             }
         });
 

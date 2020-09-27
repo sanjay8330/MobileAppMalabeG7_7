@@ -9,10 +9,11 @@
 
     <Button
         android:id="@+id/btnCardPay"
-        android:layout_width="109dp"
-        android:layout_height="32dp"
-        android:background="#86D0F1"
+        android:layout_width="147dp"
+        android:layout_height="31dp"
+        android:background="@drawable/btn"
         android:text="Continue"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -25,6 +25,7 @@ public class cardRet extends AppCompatActivity {
     private Button btndelete;
     DatabaseReference reff;
 
+
     String Id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class cardRet extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(cardRet.this,  "Error Found",Toast.LENGTH_LONG).show();
             }
 
         });

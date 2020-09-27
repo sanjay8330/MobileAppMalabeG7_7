@@ -35,8 +35,8 @@ public class EmailRet extends AppCompatActivity {
         btnUpdate =(Button) findViewById(R.id.btnUpdate);
 
 
-                reff= FirebaseDatabase.getInstance().getReference().child("PayPal").child("1");
-                reff.addValueEventListener(new ValueEventListener() {
+        reff= FirebaseDatabase.getInstance().getReference().child("PayPal").child("1");
+        reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String Email =dataSnapshot.child("email").getValue().toString();
@@ -45,7 +45,7 @@ public class EmailRet extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        Toast.makeText(EmailRet.this,  "Error Found",Toast.LENGTH_LONG).show();
                     }
 
                 });
