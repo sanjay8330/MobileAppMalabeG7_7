@@ -68,6 +68,11 @@ public class adddata extends AppCompatActivity
             date.requestFocus();
             return;
         }
+        if (TextUtils.isEmpty(nic.getText().toString())){
+            nic.setError("NIC is Required");
+            nic.requestFocus();
+            return;
+        }
 
 
         Map<String,Object> map=new HashMap<>();
