@@ -45,6 +45,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
         holder.nic.setText(model.getNic());
         holder.address.setText(model.getAddress());
         holder.cnumber.setText(model.getCnumber());
+        holder.gId.setText(model.getId());
 
        Glide.with(holder.img.getContext()).load(model.getUrl()).into(holder.img);
 
@@ -75,6 +76,8 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
                             contact.setText(model.getCnumber());
 
 
+
+
                             dialogPlus.show();
 
                                 submit.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +90,8 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
                                         map.put("nic",nic.getText().toString());
                                         map.put("address",address.getText().toString());
                                         map.put("cnumber",contact.getText().toString());
+
+
 
 
 
@@ -154,7 +159,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
 
         CircleImageView img;
         ImageView edit,delete;
-        TextView name,date,nic,address,cnumber;
+        TextView name,date,nic,address,cnumber,gId;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -164,6 +169,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
             nic=itemView.findViewById(R.id.nic);
             address=itemView.findViewById(R.id.address);
             cnumber=itemView.findViewById(R.id.cnumber);
+            gId=itemView.findViewById(R.id.gId);
 
             edit=(ImageView)itemView.findViewById(R.id.editicon);
             delete=(ImageView)itemView.findViewById(R.id.deleteicon);

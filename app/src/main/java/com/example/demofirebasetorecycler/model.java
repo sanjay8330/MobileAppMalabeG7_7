@@ -2,12 +2,12 @@ package com.example.demofirebasetorecycler;
 
 public class model
 {
-  String name,date,nic,address,cnumber,url,vehNum,vehDate,vehModel,vehColor,vehManuYear,vehNic,vehUrl;
-    model()
+  String name,date,nic,address,cnumber,url,vehNum,vehDate,vehModel,vehColor,vehManuYear,vehNic,vehUrl,id;
+    public model()
     {
 
     }
-    public model(String name,String date,String nic,String address,String cnumber,String url,String vehNum,String vehDate,String vehModel,String vehColor,String vehManuYear,String vehNic,String vehUrl) {
+    public model(String name,String date,String nic,String address,String cnumber,String url,String id) {
      this.name=name;
      this.date=date;
      this.nic=nic;
@@ -15,13 +15,8 @@ public class model
      this.address=address;
      this.cnumber=cnumber;
      this.url=url;
-     this.vehNum=vehNum;
-     this.vehDate=vehDate;
-     this.vehModel=vehModel;
-     this.vehColor=vehColor;
-     this.vehManuYear=vehManuYear;
-     this.vehNic=vehNic;
-     this.vehUrl=vehUrl;
+     this.id=id;
+
     }
 
     public String getName() {
@@ -48,60 +43,12 @@ public class model
         this.nic = nic;
     }
 
-    public String getVehNum() {
-        return vehNum;
+    public String getId() {
+        return id;
     }
 
-    public void setVehNum(String vehNum) {
-        this.vehNum = vehNum;
-    }
-
-    public String getVehDate() {
-        return vehDate;
-    }
-
-    public void setVehDate(String vehDate) {
-        this.vehDate = vehDate;
-    }
-
-    public String getVehModel() {
-        return vehModel;
-    }
-
-    public void setVehModel(String vehModel) {
-        this.vehModel = vehModel;
-    }
-
-    public String getVehColor() {
-        return vehColor;
-    }
-
-    public void setVehColor(String vehColor) {
-        this.vehColor = vehColor;
-    }
-
-    public String getVehManuYear() {
-        return vehManuYear;
-    }
-
-    public void setVehManuYear(String vehManuYear) {
-        this.vehManuYear = vehManuYear;
-    }
-
-    public String getVehNic() {
-        return vehNic;
-    }
-
-    public void setVehNic(String vehNic) {
-        this.vehNic = vehNic;
-    }
-
-    public String getVehUrl() {
-        return vehUrl;
-    }
-
-    public void setVehUrl(String vehUrl) {
-        this.vehUrl = vehUrl;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getAddress() {

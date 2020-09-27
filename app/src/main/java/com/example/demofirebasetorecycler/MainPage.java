@@ -27,13 +27,7 @@ public class MainPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        vehicle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 = new Intent(MainPage.this,VehMan.class);
-                startActivity(intent2);
-            }
-        });
+
 
 
     }
