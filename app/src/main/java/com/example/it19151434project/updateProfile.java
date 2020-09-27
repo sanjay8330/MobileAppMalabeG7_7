@@ -2,6 +2,7 @@ package com.example.it19151434project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +24,8 @@ public class updateProfile extends AppCompatActivity {
     private EditText newUserName,newUserEmail,newUserAddress,newUserPhone,newPassword;
     private ImageView back;
     private TextView updateBtn;
+    String Newemailpattern = "[a-zA-z0-9._=]+@[a-z]+\\.+[a-z]+";
+
 
 
     private FirebaseAuth auth;
@@ -74,6 +77,28 @@ public class updateProfile extends AppCompatActivity {
                 String address = newUserAddress.getText().toString();
                 String phone = newUserPhone.getText().toString();
                 String password = newPassword.getText().toString();
+
+                if(TextUtils.isEmpty(name)){
+                    newUserName.setError("Name is required");
+                    newUserName.requestFocus();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(email)){
+                    newUserEmail.setError("Email is Required");
+                    newUserEmail.requestFocus();
+                    return;
+                }
+                if(!email.matches(Newemailpattern)){
+                    newUserEmail.setError("invalid email pattern");
+                    newUserEmail.requestFocus();
+                    return;
+
+                } if (TextUtils.isEmpty(password)) {
+                    newPassword.setError("Password is Required");
+                    newPassword.requestFocus();
+                    return;
+                }
 
                 regClass1 userprofile = new regClass1(name,email,phone,address,password);
 
