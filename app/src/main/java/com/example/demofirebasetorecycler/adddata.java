@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,19 +50,27 @@ public class adddata extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 processinsert();
+
+
             }
         });
     }
 
     private void processinsert()
     {
+        if (TextUtils.isEmpty(name.getText().toString())){
+            name.setError("Email is Required");
+            name.requestFocus();
+            return;
+        }
+
         Map<String,Object> map=new HashMap<>();
-        map.put("name",name.getText().toString());
-        map.put("date",date.getText().toString());
-        map.put("nic",nic.getText().toString());
-        map.put("url",url.getText().toString());
-        map.put("address",address.getText().toString());
-        map.put("cnumber",cnumber.getText().toString());
+        map.put("name",name.getText().toString().trim());
+        map.put("date",date.getText().toString().trim());
+        map.put("nic",nic.getText().toString().trim());
+        map.put("url",url.getText().toString().trim());
+        map.put("address",address.getText().toString().trim());
+        map.put("cnumber",cnumber.getText().toString().trim());
 
         FirebaseDatabase.getInstance().getReference().child("students").push()
                 .setValue(map)
@@ -85,5 +94,9 @@ public class adddata extends AppCompatActivity
                     }
                 });
 
+
+
+
+        }
+
     }
-}
