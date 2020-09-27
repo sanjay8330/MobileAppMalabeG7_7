@@ -78,6 +78,11 @@ public class adddata extends AppCompatActivity
             url.requestFocus();
             return;
         }
+        if (TextUtils.isEmpty(address.getText().toString())){
+            address.setError("Address is Require");
+            address.requestFocus();
+            return;
+        }
 
 
         Map<String,Object> map=new HashMap<>();
