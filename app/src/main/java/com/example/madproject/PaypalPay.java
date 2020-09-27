@@ -37,16 +37,6 @@ public class PaypalPay extends AppCompatActivity {
 
 
 
-        button = (Button) findViewById(R.id.btnView);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PaypalPay.this,EmailRet.class);
-                startActivity(intent);
-            }
-        });
-
         Email = (EditText)findViewById(R.id.Email);
         btnPal = (Button)findViewById(R.id.btnPal);
         Pay = new PayPal();
@@ -77,6 +67,8 @@ public class PaypalPay extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(PaypalPay.this,  "Data insert success",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(PaypalPay.this,EmailRet.class);
+                    startActivity(intent);
                 }
 
                 PayPal.setEmail(Email.getText().toString().trim());
@@ -88,12 +80,7 @@ public class PaypalPay extends AppCompatActivity {
         });
 
     }
-    public void loadweb(View view){
 
-        Intent intent= new Intent(this, WebAct.class);
-        startActivity(intent);
-
-        }
 
 
 

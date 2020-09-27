@@ -1,5 +1,6 @@
 package com.example.madproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -67,5 +68,14 @@ public class EmailRet extends AppCompatActivity {
                 });
 
 
+
+
     }
+    public void loadweb(View view){
+
+        Intent intent= new Intent( EmailRet.this, WebAct.class);
+        startActivity(intent);
+
+    }
+
 }

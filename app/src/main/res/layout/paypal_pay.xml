@@ -7,6 +7,7 @@
     android:background="@color/white"
     tools:context=".PaypalPay">
 
+
     <Button
         android:id="@+id/btnPal"
         android:layout_width="109dp"
@@ -15,37 +16,10 @@
         android:text="Submit email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.835" />
-
-    <Button
-        android:id="@+id/btnView"
-        android:layout_width="86dp"
-        android:layout_height="21dp"
-        android:background="#86D0F1"
-        android:text="View"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711" />
-
-    <Button
-        android:id="@+id/btnSub"
-        android:layout_width="109dp"
-        android:layout_height="32dp"
-        android:background="#86D0F1"
-        android:onClick="loadweb"
-        android:text="Proceed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.847"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.837" />
+        app:layout_constraintVertical_bias="0.856" />
 
     <TextView
         android:id="@+id/textView25"
