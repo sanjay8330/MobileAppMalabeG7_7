@@ -73,6 +73,11 @@ public class adddata extends AppCompatActivity
             nic.requestFocus();
             return;
         }
+        if (TextUtils.isEmpty(url.getText().toString())){
+            url.setError("URL is Require");
+            url.requestFocus();
+            return;
+        }
 
 
         Map<String,Object> map=new HashMap<>();
