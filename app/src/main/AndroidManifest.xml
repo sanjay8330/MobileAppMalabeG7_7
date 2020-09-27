@@ -38,6 +38,17 @@
         </activity>
         <activity android:name=".adddata" />
         <activity android:name=".MainActivity" />
+
+        <activity android:name=".cardRet"></activity>
+        <activity android:name=".EmailRet" />
+        <activity android:name=".WebAct" />
+        <activity android:name=".PaypalPay" />
+        <activity android:name=".Payment" />
+        <activity android:name=".CardPayment" />
+        <activity android:name=".Bill"></activity>
+
+
+
     </application>
 
 </manifest>
