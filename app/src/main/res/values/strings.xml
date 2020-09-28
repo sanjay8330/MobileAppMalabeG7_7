@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Project</string>
+    <string name="app_name">Tour Assist SL</string>
+    <string name="button">Button</string>
+    <string name="todo">TODO</string>
     <string name="Navigate">Back</string>
     <string name="Access">Log Out</string>
     <string name="logo">Tour Assist Srilanka</string>
