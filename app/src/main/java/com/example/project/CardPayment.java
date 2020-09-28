@@ -44,6 +44,8 @@ public class CardPayment extends AppCompatActivity {
 
         txttot.setText(total);
 
+
+
         double disamount = Double.parseDouble(dis.getText().toString());
         double amount = Double.parseDouble(txttot.getText().toString());
 
@@ -107,6 +109,8 @@ public class CardPayment extends AppCompatActivity {
 
             }
         });
+
+
         button = (Button) findViewById(R.id.buttoncdret);
 
         button.setOnClickListener(new View.OnClickListener() {

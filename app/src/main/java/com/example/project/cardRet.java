@@ -24,6 +24,7 @@ public class cardRet extends AppCompatActivity {
     TextView e;
     private Button btndelete;
     DatabaseReference reff;
+    private Button btnpri;
 
     String Id;
     @Override
@@ -41,6 +42,7 @@ public class cardRet extends AppCompatActivity {
         d=(TextView) findViewById(R.id.crdNameR);
         e=(TextView) findViewById(R.id.phnNumR);
         btndelete=(Button) findViewById(R.id.btndelete);
+        btnpri=(Button)findViewById(R.id.btnpri);
 
         reff= FirebaseDatabase.getInstance().getReference().child("CardPay").child("1");
         reff.addValueEventListener(new ValueEventListener() {
@@ -74,6 +76,15 @@ public class cardRet extends AppCompatActivity {
                Toast.makeText(cardRet.this,  "Delete success",Toast.LENGTH_LONG).show();
                Intent intent = new Intent(cardRet.this,CardPayment.class);
                startActivity(intent);
+            }
+        });
+
+        btnpri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(cardRet.this,adminpage.class);
+                startActivity(intent);
+                Toast.makeText(cardRet.this,  "Payment Successful",Toast.LENGTH_LONG).show();
             }
         });
 

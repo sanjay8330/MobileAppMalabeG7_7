@@ -44,7 +44,9 @@
         <activity android:name=".PaypalPay" />
         <activity android:name=".Payment" />
         <activity android:name=".CardPayment" />
-        <activity android:name=".Bill" />
+        <activity android:name=".Bill"
+
+            />
     </application>
 
 </manifest>

@@ -40,7 +40,6 @@ public class PaypalPay extends AppCompatActivity {
         Intent paypal = getIntent();
         total = paypal.getStringExtra("Total");
 
-        button = (Button) findViewById(R.id.btnView);
         txttot = findViewById(R.id.tot);
         dis = findViewById(R.id.discount);
         finalvalue = findViewById(R.id.totPrice);
@@ -53,13 +52,6 @@ public class PaypalPay extends AppCompatActivity {
         double damount = amount - disamount;
         finalvalue.setText(String.valueOf(damount));
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PaypalPay.this,EmailRet.class);
-                startActivity(intent);
-            }
-        });
 
         Email = (EditText)findViewById(R.id.Email);
         btnPal = (Button)findViewById(R.id.btnPal);
@@ -91,6 +83,8 @@ public class PaypalPay extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(PaypalPay.this,  "Data insert success",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(PaypalPay.this,EmailRet.class);
+                    startActivity(intent);
                 }
 
                 PayPal.setEmail(Email.getText().toString().trim());
@@ -102,12 +96,5 @@ public class PaypalPay extends AppCompatActivity {
         });
 
     }
-    public void loadweb(View view){
-
-        Intent intent= new Intent(this, WebAct.class);
-        startActivity(intent);
-
-    }
-
 
 }
