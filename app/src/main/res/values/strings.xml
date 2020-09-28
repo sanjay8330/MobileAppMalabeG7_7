@@ -50,4 +50,6 @@
     <string name="addnewimage">Add new Image</string>
     <string name="roomList">List of Available Rooms</string>
     <string name="goBack">Go back to Manage Rooms</string>
+    <string name="tourist">Book Tourist Guides</string>
+    <string name="tour1">Book Guide</string>
 </resources>

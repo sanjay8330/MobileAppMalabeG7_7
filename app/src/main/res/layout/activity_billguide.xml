@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Bill">
+    tools:context=".billguide">
 
     <Button
         android:id="@+id/btnCardPay"
@@ -33,18 +33,18 @@
         app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_bias="0.618" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="233dp"
-        android:layout_height="162dp"
+        android:layout_width="194dp"
+        android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755"
+        app:layout_constraintVertical_bias="0.79"
         app:srcCompat="@drawable/logo" />
 
     <TextView
@@ -52,7 +52,7 @@
         android:layout_width="136dp"
         android:layout_height="19dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
-        android:text="Room ID"
+        android:text="Guide Name"
         android:textColor="#263054"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -143,7 +143,7 @@
         android:layout_width="141dp"
         android:layout_height="20dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
-        android:text="Room Quantity"
+        android:text="Number of days"
         android:textColor="#263054"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -152,7 +152,39 @@
         app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.393" />
+        app:layout_constraintVertical_bias="0.466" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="141dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/alegreya_sans_sc_medium"
+        android:text="Cost per Day"
+        android:textColor="#263054"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385" />
+
+    <TextView
+        android:id="@+id/unitprice"
+        android:layout_width="141dp"
+        android:layout_height="20dp"
+        android:fontFamily="@font/alegreya_sans_sc_medium"
+        android:text="1000"
+        android:textColor="#263054"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.427" />
 
     <TextView
         android:id="@+id/textView10"
@@ -175,7 +207,7 @@
         android:layout_width="224dp"
         android:layout_height="19dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
-        android:text="Room Location"
+        android:text="Guide Address"
         android:textColor="#263054"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -188,10 +220,10 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="141dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
-        android:text="Room Price"
+        android:text="Guide Contact number"
         android:textColor="#263054"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -211,9 +243,9 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
+        app:layout_constraintVertical_bias="0.534" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

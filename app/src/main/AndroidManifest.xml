@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".income"></activity>
+        <activity android:name=".billguide"></activity>
+        <activity android:name=".retrieveguides" />
+        <activity android:name=".income" />
         <activity android:name=".retrieverooms" />
         <activity android:name=".ViewRooms" />
         <activity android:name=".main_homepage" />
@@ -27,28 +29,22 @@
         <activity android:name=".ManageRooms" />
         <activity android:name=".AddHotelRoom" />
 
-
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        <activity android:name=".SalaryManage"></activity>
-        <activity android:name=".GuideHome" ></activity>
-        <activity android:name=".MainPage">
-        </activity>
+
+        <activity android:name=".SalaryManage" />
+        <activity android:name=".GuideHome" />
+        <activity android:name=".MainPage" />
         <activity android:name=".adddata" />
         <activity android:name=".MainActivity" />
-
-        <activity android:name=".cardRet"></activity>
+        <activity android:name=".cardRet" />
         <activity android:name=".EmailRet" />
         <activity android:name=".WebAct" />
         <activity android:name=".PaypalPay" />
         <activity android:name=".Payment" />
         <activity android:name=".CardPayment" />
-        <activity android:name=".Bill"></activity>
-
-
-
+        <activity android:name=".Bill" />
     </application>
 
 </manifest>

@@ -23,7 +23,6 @@ public class income extends AppCompatActivity {
     FirebaseListAdapter adapter;
     double totincome;
     TextView textView;
-    Button btncheck;//Add the payment temporary
 
     //Temporary
     DatabaseReference dbref;
@@ -37,8 +36,6 @@ public class income extends AppCompatActivity {
         listView = findViewById(R.id.listIncome);
         textView = findViewById(R.id.txtIncome);
 
-        //Temporary
-        btncheck = findViewById(R.id.test);
         paymentModel = new PaymentModel();
 
          //Check this
@@ -81,30 +78,5 @@ public class income extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
-    }
-
-    //Temporary
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        btncheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                dbref = FirebaseDatabase.getInstance().getReference().child("Payment");
-
-                paymentModel.setPaymentID("1");
-                paymentModel.setPayCategory("Rooms");
-                paymentModel.setPayDate("2020/01/01");
-                paymentModel.setAmount("2000");
-
-                dbref.push().setValue(paymentModel);
-
-                Toast.makeText(getApplicationContext(), "Payment Added", Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
     }
 }

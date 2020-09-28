@@ -10,10 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Payment extends AppCompatActivity {
     public Button button;
+    String total;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment);
+
+        Intent pay = getIntent();
+        total = pay.getStringExtra("totprice");
 
         button = (Button) findViewById(R.id.btnCardPay);
 
@@ -21,6 +25,7 @@ public class Payment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Payment.this,PaypalPay.class);
+                intent.putExtra("Total",total);
                 startActivity(intent);
             }
         });
@@ -31,6 +36,7 @@ public class Payment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Payment.this,CardPayment.class);
+                intent.putExtra("Total",total);
                 startActivity(intent);
             }
         });

@@ -43,19 +43,6 @@
         app:layout_constraintVertical_bias="0.968" />
 
     <Button
-        android:id="@+id/button27"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#9C27B0"
-        android:text="@string/button6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
-
-    <Button
         android:id="@+id/button26"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -66,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.857" />
+        app:layout_constraintVertical_bias="0.809" />
 
     <Button
         android:id="@+id/button25"
@@ -79,7 +66,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.721" />
 
     <Button
         android:id="@+id/btn"
@@ -89,23 +76,10 @@
         android:text="@string/customers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.669" />
-
-    <Button
-        android:id="@+id/button24"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#00BCD4"
-        android:text="@string/button3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584" />
+        app:layout_constraintVertical_bias="0.591" />
 
     <Button
         android:id="@+id/button22"
@@ -149,7 +123,7 @@
         android:id="@+id/button20"
         android:layout_width="81dp"
         android:layout_height="36dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorAccent1"
         android:text="@string/Access"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -173,7 +147,7 @@
         app:layout_constraintVertical_bias="0.096" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/totPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/alegreya_sans_sc_medium"
@@ -205,13 +179,33 @@
 
     <Button
         android:id="@+id/retrieve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_width="157dp"
+        android:layout_height="51dp"
+        android:background="#E91E63"
+        android:fontFamily="@font/alegreya_sans_sc_medium"
+        android:text="@string/BookRooms"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.923" />
+
+    <Button
+        android:id="@+id/retrieve2"
+        android:layout_width="157dp"
+        android:layout_height="51dp"
+        android:background="#E91E63"
+        android:fontFamily="@font/alegreya_sans_sc_medium"
+        android:text="@string/tour1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.923" />
 </androidx.constraintlayout.widget.ConstraintLayout>

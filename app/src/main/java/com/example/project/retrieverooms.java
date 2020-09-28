@@ -73,7 +73,13 @@ public class retrieverooms extends AppCompatActivity {
                 String price = rm.getPrice();
                 String location = rm.getLocat();
                 //Pass to the payment Activity intent
-                Toast.makeText(retrieverooms.this, "ID is"+ID, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(retrieverooms.this,Bill.class);
+                intent.putExtra("roomID",String.valueOf(ID));
+                intent.putExtra("roomlocation",location);
+                intent.putExtra("roomPrice",price);
+                startActivity(intent);
+                Toast.makeText(retrieverooms.this, "Your selected room ID is"+ID, Toast.LENGTH_SHORT).show();
             }
         });
     }

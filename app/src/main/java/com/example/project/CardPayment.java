@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,10 +26,29 @@ public class CardPayment extends AppCompatActivity {
     int maxId=0;
     CardPay CPay;
     public Button button;
+
+    String total;
+
+    TextView txttot,dis,finalvalue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_pay);
+
+        Intent paypal = getIntent();
+        total = paypal.getStringExtra("Total");
+
+        txttot = findViewById(R.id.iamount);
+        dis = findViewById(R.id.discount);
+        finalvalue = findViewById(R.id.famount);
+
+        txttot.setText(total);
+
+        double disamount = Double.parseDouble(dis.getText().toString());
+        double amount = Double.parseDouble(txttot.getText().toString());
+
+        double damount = amount - disamount;
+        finalvalue.setText(String.valueOf(damount));
 
         CardNum = (EditText)findViewById(R.id.CardNum);
         SeqNum = (EditText)findViewById(R.id.SeqNum);

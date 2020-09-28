@@ -1,5 +1,8 @@
 package com.example.project;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -19,55 +19,55 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Locale;
 
-public class Bill extends AppCompatActivity {
+public class billguide extends AppCompatActivity {
 
-    TextView txt1,txt2,txt3,txt4,txt5;
+    String name,address,contact;
+
+    TextView txt5,txt1,txt2,txt3,txt4,txt6;
     EditText edt1;
-    public Button button,btn1;
+    Button btn1,button;
+    double totprice;
 
     FirebaseListAdapter adapter;
     DatabaseReference dbref;
     PaymentModel paymentModel;
     int maxvalue = 001;
-
-    String locat,price,roomID;
-    double totprice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bill);
+        setContentView(R.layout.activity_billguide);
 
         paymentModel = new PaymentModel();
 
-        button = (Button) findViewById(R.id.btnCardPay);
-        btn1 = (Button) findViewById(R.id.tot);
+        txt5 = findViewById(R.id.date);
         txt1 = findViewById(R.id.id);
         txt2 = findViewById(R.id.location);
         txt3 = findViewById(R.id.price);
         txt4 = findViewById(R.id.totprice);
-        txt5 = findViewById(R.id.date);
+        txt6 = findViewById(R.id.unitprice);
 
         edt1 = findViewById(R.id.qty);
 
-        Intent secintent = getIntent();
-        roomID = secintent.getStringExtra("roomID");
-        locat = secintent.getStringExtra("roomlocation");
-        price = secintent.getStringExtra("roomPrice");
+        btn1 = findViewById(R.id.tot);
+        button = findViewById(R.id.btnCardPay);
 
-        final SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy",Locale.getDefault());
+        Intent secintent = getIntent();
+        name = secintent.getStringExtra("guideName");
+        address = secintent.getStringExtra("guideAddress");
+        contact = secintent.getStringExtra("guideContact");
+
+        final SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
         txt5.setText(df.toString());
-        txt1.setText(roomID);
-        txt2.setText(locat);
-        txt3.setText(price);
+        txt1.setText(name);
+        txt2.setText(address);
+        txt3.setText(contact);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                totprice = calcPrice(Double.valueOf(price),Integer.valueOf(edt1.getText().toString()));
+                totprice = calcPrice(Double.valueOf(txt6.getText().toString()),Integer.valueOf(edt1.getText().toString()));
                 txt4.setText(String.valueOf(totprice));
             }
         });
@@ -78,7 +78,7 @@ public class Bill extends AppCompatActivity {
                 dbref = FirebaseDatabase.getInstance().getReference().child("Payment");
 
                 paymentModel.setPaymentID(String.valueOf(maxvalue+1));
-                paymentModel.setPayCategory("Rooms");
+                paymentModel.setPayCategory("Guides");
                 paymentModel.setPayDate(df.toString());
                 paymentModel.setAmount(txt4.getText().toString());
 
@@ -87,7 +87,7 @@ public class Bill extends AppCompatActivity {
                 dbref.push().setValue(paymentModel);
 
                 Toast.makeText(getApplicationContext(), "Navigating to Payment Mode", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Bill.this,Payment.class);
+                Intent intent = new Intent(billguide.this,Payment.class);
                 intent.putExtra("totprice",finalPrice);
                 startActivity(intent);
             }

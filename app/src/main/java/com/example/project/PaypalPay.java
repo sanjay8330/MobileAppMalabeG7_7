@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,15 +28,30 @@ public class PaypalPay extends AppCompatActivity {
     PayPal Pay;
     public Button button;
 
+    String total;
+
+    TextView txttot,dis,finalvalue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paypal_pay);
 
-
-
+        Intent paypal = getIntent();
+        total = paypal.getStringExtra("Total");
 
         button = (Button) findViewById(R.id.btnView);
+        txttot = findViewById(R.id.tot);
+        dis = findViewById(R.id.discount);
+        finalvalue = findViewById(R.id.totPrice);
+
+        txttot.setText(total);
+
+        double disamount = Double.parseDouble(dis.getText().toString());
+        double amount = Double.parseDouble(txttot.getText().toString());
+
+        double damount = amount - disamount;
+        finalvalue.setText(String.valueOf(damount));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,8 +107,7 @@ public class PaypalPay extends AppCompatActivity {
         Intent intent= new Intent(this, WebAct.class);
         startActivity(intent);
 
-        }
-
+    }
 
 
 }
