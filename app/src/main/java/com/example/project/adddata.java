@@ -24,6 +24,8 @@ public class adddata extends AppCompatActivity
    Button submit,back;
    long maxid=0;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
