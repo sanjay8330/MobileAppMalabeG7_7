@@ -2,6 +2,7 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,6 +64,9 @@ public class income extends AppCompatActivity {
 
                 income += Double.parseDouble(pay.getAmount());
                 textView.setText(String.valueOf(income));
+
+                Intent intent = new Intent(income.this,expenseActivity.class) ;
+                intent.putExtra("Income",income);
             }
         };
         listView.setAdapter(adapter);

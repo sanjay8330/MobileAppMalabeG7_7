@@ -19,11 +19,7 @@
         <activity android:name=".ViewRooms" />
         <activity android:name=".main_homepage" />
         <activity android:name=".adminpage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".EditRooms" />
         <activity android:name=".ManageRooms" />
@@ -44,9 +40,22 @@
         <activity android:name=".PaypalPay" />
         <activity android:name=".Payment" />
         <activity android:name=".CardPayment" />
-        <activity android:name=".Bill"
+        <activity android:name=".Bill" />
 
-            />
+        <activity android:name=".expenseActivity"></activity>
+        <activity android:name=".ChangeUserPassword" />
+        <activity android:name=".updateProfile" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".UserForgetPassword" />
+        <activity android:name=".Login_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".MainActivityLogin" />
     </application>
 
 </manifest>

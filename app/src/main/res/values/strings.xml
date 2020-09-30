@@ -27,7 +27,6 @@
     <string name="RoomButton1">Add Room</string>
     <string name="income">Generate Income</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="customers">Manage Customers</string>
     <string name="ViewRooms">View Rooms</string>
     <string name="search">Search Room</string>
@@ -54,4 +53,8 @@
     <string name="goBack">Go back to Manage Rooms</string>
     <string name="tourist">Book Tourist Guides</string>
     <string name="tour1">Book Guide</string>
+    <string name="Login_Act">Login</string>
+    <string name="para">Dont worry! happens to the best of us..</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_077">077*******</string>
 </resources>
