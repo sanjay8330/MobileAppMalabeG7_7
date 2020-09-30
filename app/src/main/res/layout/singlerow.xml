@@ -10,14 +10,14 @@
 
     <LinearLayout
         android:layout_width="411dp"
-        android:layout_height="249dp"
+        android:layout_height="278dp"
         android:orientation="vertical"
         android:padding="15dp">
 
 
         <LinearLayout
             android:layout_width="378dp"
-            android:layout_height="170dp"
+            android:layout_height="200dp"
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -80,6 +80,15 @@
                     android:text="This is Contact"
                     android:textColor="#000"
                     android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/gId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Guide ID"
+                    android:textColor="#000"
+                    android:textSize="25sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
@@ -93,7 +102,7 @@
             <ImageView
                 android:id="@+id/editicon"
                 android:layout_width="193dp"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:src="@drawable/edit" />
 
             <ImageView

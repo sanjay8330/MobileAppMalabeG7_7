@@ -13,16 +13,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class adddata extends AppCompatActivity
 {
-   EditText name,date,nic,address,cnumber,url;
-   Button submit,back;
-   long maxid=0;
+    EditText name,date,nic,address,cnumber,url;
+    Button submit,back;
+    int max = 0;
+
+    //Newly Added
+    DatabaseReference dbref;
 
 
 
@@ -54,6 +61,22 @@ public class adddata extends AppCompatActivity
             public void onClick(View view) {
                 processinsert();
 
+
+
+            }
+        });
+
+
+        //Newly Added
+        dbref = FirebaseDatabase.getInstance().getReference().child("students");
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                max = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
@@ -93,39 +116,47 @@ public class adddata extends AppCompatActivity
         }
 
 
-        Map<String, Object> map=new HashMap<>();
+        Map<String,Object> map=new HashMap<>();
         map.put("name",name.getText().toString().trim());
         map.put("date",date.getText().toString().trim());
         map.put("nic",nic.getText().toString().trim());
         map.put("url",url.getText().toString().trim());
         map.put("address",address.getText().toString().trim());
         map.put("cnumber",cnumber.getText().toString().trim());
+        map.put("id",String.valueOf(max+1));
 
-        FirebaseDatabase.getInstance().getReference().child("students").push()
-                .setValue(map)
+
+
+        //Initial Connection deleted
+        /*FirebaseDatabase.getInstance().getReference().child("students").child(String.valueOf(max+1)).push()*/
+
+        //Newly Added
+        dbref.child(String.valueOf(max+1)).setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                       name.setText("");
-                       date.setText("");
-                       nic.setText("");
-                       url.setText("");
-                       address.setText("");
-                       cnumber.setText("");
-                        Toast.makeText(getApplicationContext(),"Inserted Successfully", Toast.LENGTH_LONG).show();
+                        name.setText("");
+                        date.setText("");
+                        nic.setText("");
+                        url.setText("");
+                        address.setText("");
+                        cnumber.setText("");
+
+
+                        Toast.makeText(getApplicationContext(),"Inserted Successfully",Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e)
                     {
-                        Toast.makeText(getApplicationContext(),"Could not insert", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Could not insert",Toast.LENGTH_LONG).show();
                     }
                 });
 
 
 
 
-        }
+    }
 
     }
