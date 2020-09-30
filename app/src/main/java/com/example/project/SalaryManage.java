@@ -1,6 +1,7 @@
 package com.example.project;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,15 +27,40 @@ public class SalaryManage extends AppCompatActivity {
         NOT = (EditText) findViewById(R.id.salNoOfT);
         totSal = (EditText) findViewById(R.id.TotSal);
 
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+
         btn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+                if (TextUtils.isEmpty(gid.getText().toString())){
+                    gid.setError("Employee ID is Required");
+                    gid.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(bSal.getText().toString())){
+                    bSal.setError("Basic Salary is Required");
+                    bSal.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(bRate.getText().toString())){
+                    bRate.setError("Bonus Rate is Required");
+                    bRate.requestFocus();
+                    return;
+                }
+                if (TextUtils.isEmpty(NOT.getText().toString())) {
+                    NOT.setError("NO Of Trips are Require");
+                    NOT.requestFocus();
+                    return;
+                }
 
                 totsal = calctotsalary(Double.parseDouble(bSal.getText().toString()),Double.parseDouble(bRate.getText().toString()),Integer.parseInt(NOT.getText().toString()));
                 totSal.setText(String.valueOf(totsal));
