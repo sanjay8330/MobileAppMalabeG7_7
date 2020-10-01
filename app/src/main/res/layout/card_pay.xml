@@ -7,6 +7,19 @@
     android:background="@color/white"
     tools:context=".CardPayment">
 
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="403dp"
+        android:layout_height="512dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/applogo" />
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="150dp"
@@ -38,43 +51,43 @@
 
     <TextView
         android:id="@+id/iamount"
-        android:layout_width="150dp"
-        android:layout_height="34dp"
+        android:layout_width="136dp"
+        android:layout_height="37dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.533" />
 
     <TextView
         android:id="@+id/discount"
-        android:layout_width="150dp"
-        android:layout_height="34dp"
+        android:layout_width="136dp"
+        android:layout_height="37dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
         android:text="250"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.592" />
 
     <TextView
         android:id="@+id/famount"
-        android:layout_width="150dp"
-        android:layout_height="34dp"
+        android:layout_width="136dp"
+        android:layout_height="37dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.657" />
@@ -166,17 +179,7 @@
         app:layout_constraintVertical_bias="0.158" />
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="282dp"
-        android:layout_height="204dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992"
-        app:srcCompat="@drawable/logo" />
+
 
     <EditText
         android:id="@+id/CardNum"

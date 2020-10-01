@@ -18,12 +18,22 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="124dp"
-                android:layout_height="121dp"
-                android:layout_marginTop="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/abc" />
+            <androidx.cardview.widget.CardView
+                android:layout_marginHorizontal="150dp"
+                android:layout_marginVertical="10dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="60dp"
+                >
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="130dp"
+                    android:layout_height="match_parent"
+
+                    app:srcCompat="@drawable/applogo" />
+
+            </androidx.cardview.widget.CardView>
 
             <EditText
                 android:id="@+id/salRegNo"
