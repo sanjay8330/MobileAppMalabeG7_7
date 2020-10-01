@@ -111,7 +111,7 @@ public class UserProfile extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent10 = new Intent(UserProfile.this,MainPage.class);
+                Intent intent10 = new Intent(UserProfile.this,main_homepage.class);
                 intent10.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent10.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent10);

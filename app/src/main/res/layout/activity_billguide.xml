@@ -91,7 +91,7 @@
         app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/location"
@@ -125,18 +125,18 @@
 
     <TextView
         android:id="@+id/totprice"
-        android:layout_width="136dp"
-        android:layout_height="19dp"
+        android:layout_width="157dp"
+        android:layout_height="28dp"
         android:fontFamily="@font/alegreya_sans_sc_medium"
         android:textColor="#263054"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.417"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865" />
+        app:layout_constraintVertical_bias="0.873" />
 
     <TextView
         android:id="@+id/textView5"
@@ -197,10 +197,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintVertical_bias="0.864" />
 
     <TextView
         android:id="@+id/textView2"
