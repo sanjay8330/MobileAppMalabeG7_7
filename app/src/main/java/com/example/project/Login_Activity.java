@@ -107,7 +107,6 @@ public class Login_Activity extends AppCompatActivity {
                             startActivity(intent);
                         }else{
                             userprogress.dismiss();
-                            Toast.makeText(getApplicationContext(),"login failed",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -120,7 +119,7 @@ public class Login_Activity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             userprogress.dismiss();
                             clearControls();
-                            Toast.makeText(getApplicationContext(),"Welcome.....\nTour Assist Sri Lanka",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Welcome To\nTour Assist Sri Lanka",Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(Login_Activity.this,ChangeUserPassword.class);
                           // intent.putExtra("id",LoginEmail);
                            // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -128,7 +127,6 @@ public class Login_Activity extends AppCompatActivity {
                             startActivity(intent);
                         }else{
                             userprogress.dismiss();
-                            Toast.makeText(getApplicationContext(),"login failed",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
