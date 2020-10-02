@@ -65,8 +65,8 @@ public class income extends AppCompatActivity {
                 income += Double.parseDouble(pay.getAmount());
                 textView.setText(String.valueOf(income));
 
-                Intent intent = new Intent(income.this,expenseActivity.class) ;
-                intent.putExtra("Income",income);
+                /*Intent intent = new Intent(income.this,expenseActivity.class) ;
+                intent.putExtra("Income",String.valueOf(income));*/
             }
         };
         listView.setAdapter(adapter);

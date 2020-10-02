@@ -23,7 +23,7 @@ public class main_homepage extends AppCompatActivity {
         btnGuide = findViewById(R.id.btnguide);
 
         view_flipper = findViewById(R.id.v_flipper);
-        int images[] = {R.drawable.carbook,R.drawable.guidebook,R.drawable.hotelbook};
+        int images[] = {R.drawable.guidebook,R.drawable.hotelbook};
         for(int image:images){
             flipImages(image);
         }

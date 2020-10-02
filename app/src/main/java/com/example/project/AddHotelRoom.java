@@ -43,7 +43,7 @@ public class AddHotelRoom extends AppCompatActivity {
     ViewFlipper view_flipper;
     CheckBox chk1,chk2,chk3,chk4,chk5;
     EditText price,descrip,locat;
-    Button add,img;
+    Button add,img,logout;
     DatabaseReference dbref;
     RoomModel room;
     int maxvalue = 001;
@@ -74,6 +74,7 @@ public class AddHotelRoom extends AppCompatActivity {
         add = findViewById(R.id.add);
         imageView = findViewById(R.id.img);
         img = findViewById(R.id.imgbutton);
+        logout = findViewById(R.id.button10);
         /*String Value Inputs*/
         price = findViewById(R.id.txt1);
         descrip = findViewById(R.id.txt2);
@@ -175,6 +176,14 @@ public class AddHotelRoom extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 chooseImage();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddHotelRoom.this,Login_Activity.class);
+                startActivity(intent);
             }
         });
     }

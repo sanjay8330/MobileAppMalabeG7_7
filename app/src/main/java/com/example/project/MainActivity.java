@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),adddata.class));
+                startActivity(new Intent(MainActivity.this,adddata.class));
             }
         });
 
