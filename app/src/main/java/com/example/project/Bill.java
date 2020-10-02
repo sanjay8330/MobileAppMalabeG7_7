@@ -109,6 +109,14 @@ public class Bill extends AppCompatActivity {
 
     //Calculate Total price
     public double calcPrice(double price,int qty){
-        return price * qty;
+        return price * qty(qty);
+    }
+
+    public int qty(int qt){
+        if(qt < 0){
+            return -1;
+        }else{
+            return qt;
+        }
     }
 }
