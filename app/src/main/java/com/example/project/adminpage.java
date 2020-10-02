@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class adminpage extends AppCompatActivity {
 
-    Button btn,btn2,btn3,btn4,btn5;
+    Button btn,btn2,btn3,btn4,btn5,btn6,btn7,btn8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,9 @@ public class adminpage extends AppCompatActivity {
         btn3 = findViewById(R.id.button26);//Calculate totalIncome
         btn4 = findViewById(R.id.button21);
         btn5 = findViewById(R.id.retrieve2);
+        btn6 = findViewById(R.id.button20);
+        btn7 = findViewById(R.id.btn);
+        btn8 = findViewById(R.id.button25);//Calculate Total Expense
     }
 
     @Override
@@ -62,6 +65,30 @@ public class adminpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(adminpage.this,retrieveguides.class);
+                startActivity(intent);
+            }
+        });
+
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(adminpage.this,Login_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(adminpage.this,MainActivityLogin.class);
+                startActivity(intent);
+            }
+        });
+
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(adminpage.this,expenseActivity.class);
                 startActivity(intent);
             }
         });

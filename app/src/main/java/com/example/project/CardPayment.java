@@ -104,7 +104,7 @@ public class CardPayment extends AppCompatActivity {
                     CPay.setCrdName(crdName.getText().toString().trim());
                     reff.child(String.valueOf(maxId+1)).setValue(CPay);
 
-                    Toast.makeText(CardPayment.this,  "Data Gone success",Toast.LENGTH_LONG).show();
+                    Toast.makeText(CardPayment.this,  "Payment Details added successfully",Toast.LENGTH_LONG).show();
                 }
 
             }

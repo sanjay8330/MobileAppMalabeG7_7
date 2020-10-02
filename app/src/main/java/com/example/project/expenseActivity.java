@@ -24,18 +24,18 @@ public class expenseActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         incomerec = intent.getStringExtra("Income");
-        income.setText(incomerec);
 
         income = findViewById(R.id.IncomeTotal);
         expense = findViewById(R.id.ExpenseTotal);
         profit = findViewById(R.id.totProfit);
-
         calcTotal = findViewById(R.id.calculateBtn);
+
+        //income.setText(String.valueOf(incomerec));
 
         calcTotal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                totprofit = calctotProfit(Double.parseDouble(income.getText().toString()),Double.parseDouble(expense.getText().toString()));
+                totprofit = calctotProfit(Double.parseDouble(income.getText().toString().trim()),Double.parseDouble(expense.getText().toString().trim()));
 
                 profit.setText(String.valueOf(totprofit));
             }
