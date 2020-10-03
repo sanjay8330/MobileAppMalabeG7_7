@@ -82,7 +82,7 @@ public class cardRet extends AppCompatActivity {
         btnpri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cardRet.this,adminpage.class);
+                Intent intent = new Intent(cardRet.this,main_homepage.class);
                 startActivity(intent);
                 Toast.makeText(cardRet.this,  "Payment Successful",Toast.LENGTH_LONG).show();
             }
