@@ -20,9 +20,9 @@ public class IT19158228 {
     @Test
     public void testGuideBill(){
         double res = bill.calcPrice(1000,2);
-        assertEquals(2000,res);
+        assertEquals(2000,res,1e-15);
         double res1 = bill.calcPrice(1000,-1);
-        assertEquals(1000,res);
+        assertEquals(1000,res1,1e-15);
     }
 
     @Test

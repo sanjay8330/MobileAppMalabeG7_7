@@ -17,9 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity
 {
-   RecyclerView recview;
-   myadapter adapter;
-   FloatingActionButton fb;
+    RecyclerView recview;
+    myadapter adapter;
+    FloatingActionButton fb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,adddata.class));
+                startActivity(new Intent(getApplicationContext(),adddata.class));
             }
         });
 
@@ -64,27 +64,27 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-         getMenuInflater().inflate(R.menu.searchmenu,menu);
+        getMenuInflater().inflate(R.menu.searchmenu,menu);
 
-         MenuItem item=menu.findItem(R.id.search);
+        MenuItem item=menu.findItem(R.id.search);
 
-         SearchView searchView=(SearchView)item.getActionView();
+        SearchView searchView=(SearchView)item.getActionView();
 
-         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
-         {
-             @Override
-             public boolean onQueryTextSubmit(String s) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
+        {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
 
-                 processsearch(s);
-                 return false;
-             }
+                processsearch(s);
+                return false;
+            }
 
-             @Override
-             public boolean onQueryTextChange(String s) {
-                 processsearch(s);
-                 return false;
-             }
-         });
+            @Override
+            public boolean onQueryTextChange(String s) {
+                processsearch(s);
+                return false;
+            }
+        });
 
         return super.onCreateOptionsMenu(menu);
     }

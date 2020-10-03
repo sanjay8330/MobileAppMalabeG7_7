@@ -8,10 +8,6 @@
     android:gravity="center"
     tools:context=".adddata">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
 
     <EditText
         android:layout_width="300dp"
@@ -88,7 +84,7 @@
         android:textAlignment="center"
         android:background="@drawable/text"
         android:hint="Contact Number"
-        android:inputType="number"
+        android:inputType="numberPassword"
         android:layout_marginBottom="15dp"
         android:textColor="#000"/>
 
@@ -125,8 +121,6 @@
         android:background="@drawable/button"
         android:textSize="20sp"
         android:text="Back"/>
-
-    </ScrollView>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

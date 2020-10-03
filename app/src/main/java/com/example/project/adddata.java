@@ -22,61 +22,42 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class adddata extends AppCompatActivity
-{
-    EditText name,date,nic,address,cnumber,url;
-    Button submit,back;
+public class adddata extends AppCompatActivity {
+    EditText name, date, nic, address, cnumber, url;
+    Button submit, back;
     int max = 0;
 
     //Newly Added
     DatabaseReference dbref;
 
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adddata);
 
-        name=(EditText)findViewById(R.id.add_name);
-        date=(EditText)findViewById(R.id.add_date);
-        nic=(EditText)findViewById(R.id.add_nic);
-        url=(EditText)findViewById(R.id.add_purl);
-        address=(EditText)findViewById(R.id.add_address);
-        cnumber=(EditText)findViewById(R.id.add_number);
+        name = (EditText) findViewById(R.id.add_name);
+        date = (EditText) findViewById(R.id.add_date);
+        nic = (EditText) findViewById(R.id.add_nic);
+        url = (EditText) findViewById(R.id.add_purl);
+        address = (EditText) findViewById(R.id.add_address);
+        cnumber = (EditText) findViewById(R.id.add_number);
 
-        back=(Button)findViewById(R.id.add_back);
+        back = (Button) findViewById(R.id.add_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
         });
 
-        submit=(Button)findViewById(R.id.add_submit);
+        submit = (Button) findViewById(R.id.add_submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 processinsert();
 
-
-
-            }
-        });
-
-
-        //Newly Added
-        dbref = FirebaseDatabase.getInstance().getReference().child("students");
-        dbref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                max = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
@@ -131,6 +112,23 @@ public class adddata extends AppCompatActivity
         /*FirebaseDatabase.getInstance().getReference().child("students").child(String.valueOf(max+1)).push()*/
 
         //Newly Added
+        dbref = FirebaseDatabase.getInstance().getReference().child("students");
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                max = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        //Newly Added
+
+        dbref = FirebaseDatabase.getInstance().getReference().child("students");
+
         dbref.child(String.valueOf(max+1)).setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -159,4 +157,6 @@ public class adddata extends AppCompatActivity
 
     }
 
-    }
+}
+
+
