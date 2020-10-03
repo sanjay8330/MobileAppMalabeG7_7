@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.*;
 
 public class Bill extends AppCompatActivity {
 
@@ -57,8 +58,9 @@ public class Bill extends AppCompatActivity {
         locat = secintent.getStringExtra("roomlocation");
         price = secintent.getStringExtra("roomPrice");
 
-        final SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy",Locale.getDefault());
-        txt5.setText(df.toString());
+        //final SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy",Locale.getDefault());
+        final String date = String.valueOf(Calendar.getInstance().get(Calendar.DATE)) + "/" +  String.valueOf(Calendar.getInstance().get(Calendar.MONTH)) + "/" + String.valueOf(Calendar.getInstance().get(Calendar.YEAR)) ;
+        txt5.setText(date);
         txt1.setText(roomID);
         txt2.setText(locat);
         txt3.setText(price);
@@ -79,7 +81,7 @@ public class Bill extends AppCompatActivity {
 
                 paymentModel.setPaymentID(String.valueOf(maxvalue+1));
                 paymentModel.setPayCategory("Rooms");
-                paymentModel.setPayDate(df.toString());
+                paymentModel.setPayDate(date);
                 paymentModel.setAmount(txt4.getText().toString());
 
                 String finalPrice = txt4.getText().toString();
