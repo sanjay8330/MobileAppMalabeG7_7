@@ -57,7 +57,7 @@ public class PaypalPay extends AppCompatActivity {
         btnPal = (Button)findViewById(R.id.btnPal);
         Pay = new PayPal();
 
-        reff = Database.getInstance().getReference().child("Paypal");
+        reff = Database.getInstance().getReference().child("PayPal");
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
