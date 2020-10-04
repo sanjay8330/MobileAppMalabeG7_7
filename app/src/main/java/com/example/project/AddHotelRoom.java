@@ -134,6 +134,8 @@ public class AddHotelRoom extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Enter the Location", Toast.LENGTH_SHORT).show();
                         } else if (TextUtils.isEmpty(descrip.getText().toString())) {
                             Toast.makeText(getApplicationContext(), "Enter the description", Toast.LENGTH_SHORT).show();
+                        } else if(imageView.getDrawable() == null){
+                            Toast.makeText(getApplicationContext(), "Please Add image of room", Toast.LENGTH_SHORT).show();
                         }
                         else {
                             //Getting Inputs from the check Box

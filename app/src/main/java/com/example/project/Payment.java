@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Payment extends AppCompatActivity {
-    public Button button;
+    public Button button,button1;
     String total;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,9 @@ public class Payment extends AppCompatActivity {
             }
         });
 
-        button = (Button) findViewById(R.id.btnCard);
+        button1 = (Button) findViewById(R.id.btnCard);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Payment.this,CardPayment.class);

@@ -61,6 +61,20 @@ public class adddata extends AppCompatActivity {
 
             }
         });
+
+        //Newly Added
+        dbref = FirebaseDatabase.getInstance().getReference().child("students");
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                max = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void processinsert()
@@ -112,23 +126,6 @@ public class adddata extends AppCompatActivity {
         /*FirebaseDatabase.getInstance().getReference().child("students").child(String.valueOf(max+1)).push()*/
 
         //Newly Added
-        dbref = FirebaseDatabase.getInstance().getReference().child("students");
-        dbref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                max = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        //Newly Added
-
-        dbref = FirebaseDatabase.getInstance().getReference().child("students");
-
         dbref.child(String.valueOf(max+1)).setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
