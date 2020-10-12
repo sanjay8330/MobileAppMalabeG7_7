@@ -34,7 +34,7 @@ public class cardRet extends AppCompatActivity {
 
         Intent secIntent = getIntent();
 
-        Id=secIntent.getStringExtra("childID");
+        Id=secIntent.getStringExtra("ChildID").toString().trim();
 
         a=(TextView) findViewById(R.id.cardNumR);
         b=(TextView) findViewById(R.id.seqNumR);
@@ -44,7 +44,7 @@ public class cardRet extends AppCompatActivity {
         btndelete=(Button) findViewById(R.id.btndelete);
         btnpri=(Button)findViewById(R.id.btnpri);
 
-        reff= FirebaseDatabase.getInstance().getReference().child("CardPay").child("1");
+        reff= FirebaseDatabase.getInstance().getReference().child("CardPay").child(Id);
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -68,13 +68,23 @@ public class cardRet extends AppCompatActivity {
         });
 
      btndelete.setOnClickListener(new View.OnClickListener() {
+         String payID = Id.toString().trim();
            @Override
            public void onClick(View view) {
 
+               reff.child("CardPay").child(payID).addListenerForSingleValueEvent(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                       reff.child(payID).removeValue();
+                   }
 
-               FirebaseDatabase.getInstance().getReference().child("CardPay").child("1").removeValue();
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                   }
+               });
                Toast.makeText(cardRet.this,  "Delete success",Toast.LENGTH_LONG).show();
-               Intent intent = new Intent(cardRet.this,CardPayment.class);
+               Intent intent = new Intent(cardRet.this,main_homepage.class);
                startActivity(intent);
             }
         });
@@ -82,9 +92,15 @@ public class cardRet extends AppCompatActivity {
         btnpri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(cardRet.this,main_homepage.class);
+                a.setText("");
+                b.setText("");
+                c.setText("");
+                d.setText("");
+                e.setText("");
+
+                     /*Intent intent = new Intent(cardRet.this,main_homepage.class);
                 startActivity(intent);
-                Toast.makeText(cardRet.this,  "Payment Successful",Toast.LENGTH_LONG).show();
+                Toast.makeText(cardRet.this,  "Payment Successful",Toast.LENGTH_LONG).show();*/
             }
         });
 

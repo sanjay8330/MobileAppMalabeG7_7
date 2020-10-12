@@ -26,7 +26,6 @@ public class CardPayment extends AppCompatActivity {
     int maxId=0;
     CardPay CPay;
     public Button button;
-
     String total;
 
     TextView txttot,dis,finalvalue;
@@ -61,19 +60,15 @@ public class CardPayment extends AppCompatActivity {
 
         CPay = new CardPay();
 
-        reff = Database.getInstance().getReference().child("CardPay");
-
+        reff = FirebaseDatabase.getInstance().getReference().child("CardPay");
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                if(dataSnapshot.exists()) {
-                    maxId = (int)dataSnapshot.getChildrenCount();
-                }
+                maxId = Integer.parseInt(String.valueOf(dataSnapshot.getChildrenCount()));
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
@@ -102,9 +97,15 @@ public class CardPayment extends AppCompatActivity {
                     CPay.setExDate(ExDate.getText().toString().trim());
                     CPay.setPhnNum(phnNum.getText().toString().trim());
                     CPay.setCrdName(crdName.getText().toString().trim());
+
                     reff.child(String.valueOf(maxId+1)).setValue(CPay);
 
                     Toast.makeText(CardPayment.this,  "Payment Details added successfully",Toast.LENGTH_LONG).show();
+
+                    String ChildID = String.valueOf(maxId + 1);
+                    Intent intent = new Intent(CardPayment.this,cardRet.class);
+                    intent.putExtra("ChildID",ChildID);
+                    startActivity(intent);
                 }
 
             }
